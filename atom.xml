@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-24T08:33:25.000Z</updated>
+  <updated>2019-08-24T10:36:27.883Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基本操作二：写作技巧</title>
+    <link href="http://yoursite.com/2019/08/24/second2/"/>
+    <id>http://yoursite.com/2019/08/24/second2/</id>
+    <published>2019-08-24T08:37:06.000Z</published>
+    <updated>2019-08-24T10:36:27.883Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><h3 id="1-有关符号编译出错"><a href="#1-有关符号编译出错" class="headerlink" title="1.有关符号编译出错"></a>1.有关符号编译出错</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; -&gt; &amp;<span class="comment">#123; — 大括号左边部分Left curly brace</span></span><br><span class="line">&#125; -&gt; &amp;<span class="comment">#125; — 大括号右边部分Right curly brace</span></span><br><span class="line">空格 -&gt; &amp;ensp;</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="2-有关图片"><a href="#2-有关图片" class="headerlink" title="2.有关图片"></a>2.有关图片</h3><p>在blog（hexo）目录下Git Bash Here，运行hexo n “博客名”来生成md博客时，会在_post目录下看到一个与博客同名的文件夹。按照如下格式则可以插入图片<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![你想要输入的替代文字](second2/test.jpg)</span><br></pre></td></tr></table></figure></p><p>测试效果图：<br><img src="/2019/08/24/second2/test.jpg" alt="你想要输入的替代文字"></p><h3 id="3-有关音乐"><a href="#3-有关音乐" class="headerlink" title="3.有关音乐"></a>3.有关音乐</h3><p>在网易云音乐中生成外链音乐播放器。如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe frameborder=<span class="string">"no"</span> border=<span class="string">"0"</span> marginwidth=<span class="string">"0"</span> marginheight=<span class="string">"0"</span> width=330 height=86 src=<span class="string">"//music.163.com/outchain/player?type=2&amp;id=541326593&amp;auto=1&amp;height=66"</span>&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure></p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=541326593&auto=1&height=66"></iframe>  <h3 id="4-有关视频"><a href="#4-有关视频" class="headerlink" title="4.有关视频"></a>4.有关视频</h3><p>在优酷中生成外链视频播放器。如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe height=100 width=100 src=<span class="string">'http://player.youku.com/embed/XNDI0NDYyNjk1Mg=='</span> frameborder=0 <span class="string">'allowfullscreen'</span>&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure></p><iframe height="100" width="100" src="http://player.youku.com/embed/XNDI0NDYyNjk1Mg==" frameborder="0" 'allowfullscreen'></iframe>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;写作&quot;&gt;&lt;a href=&quot;#写作&quot; class=&quot;headerlink&quot; title=&quot;写作&quot;&gt;&lt;/a&gt;写作&lt;/h2&gt;&lt;h3 id=&quot;1-有关符号编译出错&quot;&gt;&lt;a href=&quot;#1-有关符号编译出错&quot; class=&quot;headerlink&quot; title=&quot;1.有关符号编译出错&quot;&gt;&lt;/a&gt;1.有关符号编译出错&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123; -&amp;gt; &amp;amp;&lt;span class=&quot;comment&quot;&gt;#123; — 大括号左边部分Left curly brace&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125; -&amp;gt; &amp;amp;&lt;span class=&quot;comment&quot;&gt;#125; — 大括号右边部分Right curly brace&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;空格 -&amp;gt; &amp;amp;ensp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="hexo博客操作" scheme="http://yoursite.com/categories/hexo%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/"/>
+    
+    
+      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>基本操作一：部署命令</title>
@@ -28,7 +52,7 @@
     <summary type="html">
     
       &lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Writing&lt;/a&gt;&lt;br&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Writing&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
