@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[基本操作二：写作技巧]]></title>
     <url>%2F2019%2F08%2F24%2Fsecond2%2F</url>
-    <content type="text"><![CDATA[写作###有关符号编译出错123&#123; -&gt; &amp;#123; — 大括号左边部分Left curly brace&#125; -&gt; &amp;#125; — 大括号右边部分Right curly brace空格 -&gt; &amp;ensp; ###有关图片在blog（hexo）目录下Git Bash Here，运行hexo n “博客名”来生成md博客时，会在_post目录下看到一个与博客同名的文件夹。按照如下格式则可以插入图片1![你想要输入的替代文字](second2/test.jpg) 测试效果图： ###有关音乐在网易云音乐中生成外链音乐播放器。如下1&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=541326593&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt; ###有关视频在优酷中生成外链视频播放器。如下1&lt;iframe height=100 width=100 src='http://player.youku.com/embed/XNDI0NDYyNjk1Mg==' frameborder=0 'allowfullscreen'&gt;&lt;/iframe&gt;]]></content>
+    <content type="text"><![CDATA[写作###有关符号编译出错123&#123; -&gt; &amp;#123; — 大括号左边部分Left curly brace&#125; -&gt; &amp;#125; — 大括号右边部分Right curly brace空格 -&gt; &amp;ensp; ###有关图片在blog（hexo）目录下Git Bash Here，运行hexo n “博客名”来生成md博客时，会在_post目录下看到一个与博客同名的文件夹。按照如下格式则可以插入图片1![你想要输入的替代文字](second2/test.jpg) 测试效果图： ###有关音乐在网易云音乐中生成外链音乐播放器。如下1&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=541326593&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt; ###有关视频在优酷中生成外链视频播放器。如下1&lt;iframe height=498 width=510 src='http://player.youku.com/embed/XNDI0NDYyNjk1Mg==' frameborder=0 'allowfullscreen'&gt;&lt;/iframe&gt;]]></content>
       <categories>
         <category>hexo博客操作</category>
       </categories>
