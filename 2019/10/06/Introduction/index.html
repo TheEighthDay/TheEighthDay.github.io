@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="过了星期天的博客">
 <meta property="og:description" content="1 概率论相关概念的通俗理解：这里将我看到知识点作通俗的表达，可以加深自己的理解，详细的案例在书籍《PRML》。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-06T15:19:24.599Z">
+<meta property="og:updated_time" content="2019-10-06T15:23:06.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PRML：绪论">
 <meta name="twitter:description" content="1 概率论相关概念的通俗理解：这里将我看到知识点作通俗的表达，可以加深自己的理解，详细的案例在书籍《PRML》。">
@@ -431,7 +431,7 @@
 <ol>
 <li><strong>概率</strong>：作为贝叶斯派的概率应该理解为：事件的随机性，而频率派的理解是：可重复事件再次发生的可能性。</li>
 <li><strong>概率密度</strong>：我们将概率这一概念与质量作类比。考虑一个密度分布不均匀的小球，总质量为1，概率密度就相当于这个小球某处的密度，值是可以大于1的，但是这个密度乘以体积所得的质量（也就是概率）是恒小于等于1的。然后至于概率密度越大的点，说明单位体积落在该点的质量越大（也就是发生这个点附近事件的概率越大）。</li>
-<li><strong>期望，方差，协方差，协方差矩阵</strong>从频率派的角度来看：期望是度量一个随机变量取值的集中位置或平均水平的最基本的数字特征，方差是表示随机变量取值的分散性的一个数字特征。协方差是度量两个变量之间的线性相关性。协方差矩阵是半正定或者正定矩阵（矩阵乘以矩阵转置必定为实对称矩阵，且半正定或者正定），用于衡量变量不同维度的线性相关性。至于说贝叶斯派的理解一直没找到，可能是不用这样的说法。</li>
+<li><strong>期望，方差，协方差，协方差矩阵</strong>：从频率派的角度来看：期望是度量一个随机变量取值的集中位置或平均水平的最基本的数字特征，方差是表示随机变量取值的分散性的一个数字特征。协方差是度量两个变量之间的线性相关性。协方差矩阵是半正定或者正定矩阵（矩阵乘以矩阵转置必定为实对称矩阵，且半正定或者正定），用于衡量变量不同维度的线性相关性。至于说贝叶斯派的理解一直没找到，可能是不用这样的说法。</li>
 <li><strong>贝叶斯概率以及贝叶斯估计的思想</strong>：参考文献第二点。</li>
 <li><strong>最大似然估计的局限</strong>：首先最大似然估计是根据一个数据集进行，数据集期望的无偏估计值是真实分布的期望，而数据集方差的无偏估计值并不是真实分布的方差，比真实值偏小，这是导致过度拟合的主要原因。在公式中这种偏差的体现就是：每一个数据集中样本计算方差是根据当前数据集的期望并非是真实分布的期望。同时表达出一种思想：数据集越大，数据集方差无偏估计值越接近真实分布的方差。</li>
 </ol>
@@ -1249,7 +1249,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -1258,5 +1258,5 @@
   
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
 </html>
