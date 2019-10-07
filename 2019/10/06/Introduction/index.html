@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="过了星期天的博客">
 <meta property="og:description" content="1 概率论相关概念的通俗理解：这里将我看到知识点作通俗的表达，可以加深自己的理解，详细的案例在书籍《PRML》。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-06T15:23:06.658Z">
+<meta property="og:updated_time" content="2019-10-07T12:49:20.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PRML：绪论">
 <meta name="twitter:description" content="1 概率论相关概念的通俗理解：这里将我看到知识点作通俗的表达，可以加深自己的理解，详细的案例在书籍《PRML》。">
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  1.5k
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -441,8 +441,25 @@
 <li><strong>维度灾难</strong>：随着维度的增加，我们模型需要的参数快速增加，使得模型变得笨拙不可利用。</li>
 </ol>
 <h1 id="3-决策论"><a href="#3-决策论" class="headerlink" title="3 决策论"></a>3 决策论</h1><ol>
-<li><strong>推断和决策过程</strong>：一个问题的建模我们将其分为推断和决策部分。</li>
-<li>未完待续……</li>
+<li><strong>推断和决策过程</strong>：一个问题的求解我们将其分为推断和决策部分。推断部分我们可以理解为建立模型的过程，而决策部分理解为通过模型做出结论过程。</li>
+<li><strong>最小化错误分类率</strong>：这是做分类问题决策最直接原始的想法，就是所有的样本分类全部正确实现最小化的错误分类，以此作为决策目标。</li>
+<li><strong>最小化期望损失</strong>：但是考虑到不同的分类错误带来的影响不一样，我们引入了损失矩阵，并构建损失函数来表示损失，所有样本的损失期望值作为决策目标。</li>
+<li><strong>拒绝选项</strong>：设定一个阈值来拒绝对一些样本决策，当该样本的后验概率中最大值依旧小于这个阈值，那拒绝对这个样本决策。</li>
+<li><strong>分类问题中推断与决策的三种方式</strong>：<ul>
+<li>求解联合概率，从而得到后验概率，利用决策论与后验概率决策。先求联合概率再求后验概率我们称为生成式模型。</li>
+<li>直接求解后验概率，利用决策论与后验概率决策。我们称这样的模型为判别式模型。</li>
+<li>找到一个判别函数将输入直接映射到标签。</li>
+</ul>
+</li>
+<li><strong>回归问题的损失函数</strong>：和分类问题十分相似，只是没了损失矩阵，我们通过损失函数来计算损失所有样本的损失期望值作为决策目标。</li>
+<li><strong>回归问题中推断与决策的三种方式</strong>：与回归问题相似。</li>
+<li><strong>求解后验概率的必要性</strong>：实际上我们有很多理由需要求解后验概率<ul>
+<li>最小化风险</li>
+<li>拒绝选项：后验概率可以让我们设定拒绝的阈值，而直接映射到标签，则无法选择拒绝。</li>
+<li>补偿先验概率</li>
+<li>组合模型</li>
+</ul>
+</li>
 </ol>
 <h1 id="4-信息论"><a href="#4-信息论" class="headerlink" title="4 信息论"></a>4 信息论</h1><ol>
 <li><strong>信息论的基本假设</strong>：越不可能发生的事情发生了那么这件事信息量大。</li>
