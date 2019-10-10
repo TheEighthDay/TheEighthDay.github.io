@@ -568,7 +568,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.8k
+                  5.4k
                 </span>
               
 
@@ -584,7 +584,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  22
+                  25
                 </span>
               
             </div>
@@ -606,11 +606,7 @@
 
       
         
-          <h1 id="一-利用Variable自动求导"><a href="#一-利用Variable自动求导" class="headerlink" title="一 利用Variable自动求导"></a>一 利用Variable自动求导</h1><h2 id="1-1-Variable"><a href="#1-1-Variable" class="headerlink" title="1.1 Variable"></a>1.1 Variable</h2><h3 id="1-1-1-定义"><a href="#1-1-1-定义" class="headerlink" title="1.1.1 定义"></a>1.1.1 定义</h3><p>&emsp;&emsp;在pytorch中，我们需要能够构建计算图的 tensor，这就是 Variable数据结构。Variable 是对 tensor 的封装，操作和 tensor 是一样的，但是每个 Variabel都有三个属性，Variable 中的 tensor本身.data，对应 tensor 的梯度.grad以及这个 Variable 是通过什么方式得到的.grad_fn。</p>
-<h3 id="1-1-2-特性"><a href="#1-1-2-特性" class="headerlink" title="1.1.2 特性"></a>1.1.2 特性</h3><ul>
-<li><p>requires_grad<br>变量可以有梯度，求导。</p>
-</li>
-<li><p>volatile<br>主要以用于inference过程中。若是某个过程，从 x 开始 都只需做预测，不需反传梯度的话，那么只需设置x.volatile=True ,那么 x 以后的运算过程的输出均为 volatile==True ,即 requires_grad==False。虽然inference 过程不必backward(),所以requires_grad 的值为False 或 True，对结果是没有影响的，但是对程序的运算效率有直接影响；所以使用volatile=True ,就不必把运算过程中所有参数都手动设一遍requires_grad = False 了，方便快捷。</p></li></ul>
+          <h1 id="一-利用Variable自动求导"><a href="#一-利用Variable自动求导" class="headerlink" title="一 利用Variable自动求导"></a>一 利用Variable自动求导</h1><h2 id="1-1-Variable"><a href="#1-1-Variable" class="headerlink" title="1.1 Variable"></a>1.1 Variable</h2><h3 id="1-1-1-定义"><a href="#1-1-1-定义" class="headerlink" title="1.1.1 定义"></a>1.1.1 定义</h3><p>&emsp;&emsp;在pytorch中，我们需要能够构建计算图的 tensor，这就是 Variable数据结构。Variable 是对 tensor 的封装，操作和 tensor 是一样的，但是每个 Variabel都有三个属性，Variable 中的 tensor本身.data，对应 tensor 的梯度.grad以及这个 Variable 是通过什么方式得到的.grad_fn。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/09/18/learn-pytorch/#more" rel="contents">
