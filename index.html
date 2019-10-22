@@ -325,7 +325,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/22/ProbabilityDistributions/" itemprop="url">ProbabilityDistributions</a></h1>
+                <a class="post-title-link" href="/2019/10/22/ProbabilityDistributions/" itemprop="url">PRML：概率分布</a></h1>
         
 
         <div class="post-meta">
@@ -429,55 +429,16 @@
 
       
         
-          
-            <h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h1><ul>
+          <h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h1><ul>
 <li><strong>共轭先验（conjugate prior）</strong>：如果后验分布与先验分布属于同类，则先验分布与后验分布被称为共轭分布，而先验分布被称为似然函数的共轭先验。所有指数家族的分布都有共轭先验。</li>
-<li>这章节其实就是在讲似然函数有哪些分布，对应的共轭先验分布。这些似然函数分布都有参数，但是分为两钟参数，一种控制些似然函数分布的参数，一种控制模型的复杂度。此外详细介绍了高斯分布。</li>
-</ul>
-<h1 id="2-似然函数分布及其共轭先验分布"><a href="#2-似然函数分布及其共轭先验分布" class="headerlink" title="2 似然函数分布及其共轭先验分布"></a>2 似然函数分布及其共轭先验分布</h1><ul>
-<li>二项分布作为似然函数，共轭先验为beta分布。</li>
-<li>多项式分布作为似然函数，共轭先验为狄利克雷分布。</li>
-<li>高斯分布作为似然函数，共轭先验为高斯分布。</li>
-</ul>
-<h1 id="3-高斯分布（重要）"><a href="#3-高斯分布（重要）" class="headerlink" title="3 高斯分布（重要）"></a>3 高斯分布（重要）</h1><h2 id="3-1-什么是高斯分布？"><a href="#3-1-什么是高斯分布？" class="headerlink" title="3.1 什么是高斯分布？"></a>3.1 什么是高斯分布？</h2><p>如果把一个高斯分布分为两部分，指数部分和非指数部分。非指数部分用于描述<strong>概率密度衰减的速度</strong>（在二维情况下图中蓝线的下降速度），而指数部分描述了<strong>大多数样本点</strong>在一个<strong>超椭球面</strong>（在二维情况下图中红色的椭圆）的内。最开始的一段先描述了马氏距离概念，也就是对高斯分布的指数部分。<br><img src="https://s2.ax1x.com/2019/10/10/uTRl4O.png" alt><br>那么这个<strong>超椭球面</strong>如何得出的？<br>先看一下高斯分布的公式<br>$$<br>p({\bf x})=\frac{1}{(2\pi)^{\frac{d}{2}}|\Sigma|^\frac{1}{2}}exp{-\frac{1}{2}({\bf x-\mu})^T{\Sigma}^{-1}({\bf x-\mu})}<br>$$</p>
-<p>协方差矩阵公式<br>$$<br>\Sigma=E{(\bf x-\bf \mu)(\bf x - \mu)^T}<br>$$<br>很明显，协方差公式是实对称矩阵，利用特征分解相似对角化，并施密特正交化可得：<br>$$<br>{\bf\Sigma}^{-1}={\bf U^{-T}\Lambda^{-1}U^{-1}}={\bf U\Lambda^{-1}U^T}=\sum_{i=1}^d\frac{1}{\lambda_i}{\bf u}_i{\bf u}_i^T<br>$$</p>
-<p>因此高斯分布指数部分的公式可以写成<br>$$<br>({\bf x-\mu})^T{\Sigma}^{-1}({\bf x-\mu})=({\bf x-\mu})^T\left(\sum_{i=1}^d\frac{1}{\lambda_i}{\bf u}_i{\bf u}_i^T\right)({\bf x-\mu})\<br>$$</p>
-<p>也就是<br>$$<br>\sum_{i=1}^d\frac{1}{\lambda_i}({\bf x-\mu})^T{\bf u}_i{\bf u}_i^T({\bf x-\mu})\<br>$$<br>这个形式其实已经相当明朗了，这是一个超椭球面，椭球面的中心为\( \bf \mu \),而轴有d条，每条轴的方向为\( \bf u_i \),大小为\( \lambda_i \)<br>在二维情况下，绝大多数样本在红色的椭圆内，也就是超椭球面，而对应的两个\( \lambda \)特征值就是轴的长度。<br>在一维情况下，绝大多数样本在\( \mu - \Sigma \) 到\( \mu + \Sigma \)，这时候的超椭球面退化成了一条直线，\( \Sigma \)也就是轴的长度。<br>接着描述了多维高斯分布可以转化为一元高斯分布的乘积形式。<br>文章最后观察了\( \mu \)，\( \Sigma \)的矩，以及高斯分布参数多，单峰的缺点。</p>
-<h2 id="3-2-条件高斯分布"><a href="#3-2-条件高斯分布" class="headerlink" title="3.2 条件高斯分布"></a>3.2 条件高斯分布</h2><p>首先引入精度矩阵（precision matrix）的概念,它是协方差举证的逆。这一节主要推导，如果两节变量是联合高斯分布，那么以一组变量为条件，另外一组变量同样是高斯分布。对于联合概率密度p(Xa,Xb),只需要将Xb确定，那么便得到条件概率密度p（Xa|Xb），对比高斯分布指数分布的一般形式，我们可以得到条件概率密度p（Xa|Xb）的\( \mu \)，\( \Sigma \)。推导过程主要是分块矩阵变换，没有进行推导，有需要再来吧。</p>
-<h2 id="3-3-边缘高斯分布"><a href="#3-3-边缘高斯分布" class="headerlink" title="3.3 边缘高斯分布"></a>3.3 边缘高斯分布</h2><p>因为积分只对指数部分有用，我们单独拿出指数部分来做分析，将指数部分编程变量为Xb的一般形式，然后求积分，对比标准的高斯分布，可以得出边缘概率密度也是高斯分布，且可以的得到边缘概率密度的\( \mu \)，\( \Sigma \)。<br><img src="https://s2.ax1x.com/2019/10/11/uqqXYF.png" alt></p>
-<h2 id="3-4-高斯分布的极大似然估计"><a href="#3-4-高斯分布的极大似然估计" class="headerlink" title="3.4 高斯分布的极大似然估计"></a>3.4 高斯分布的极大似然估计</h2><p>因为数据集的每个数据变量符合高斯分布且独立，所以这些变量的概率密度函数连乘的形式可以写成联合概率密度形式，也就是高维度的高斯分布，接着取log，求导=0，寻找令联合概率密度极大值的 \( \mu \)，\( \Sigma \)。</p>
-<h2 id="3-5-高斯分布的贝叶斯推断"><a href="#3-5-高斯分布的贝叶斯推断" class="headerlink" title="3.5 高斯分布的贝叶斯推断"></a>3.5 高斯分布的贝叶斯推断</h2><p>高斯分布的贝叶斯推断主要要讲了，当似然函数为一个高斯分布。\( \Sigma^2 \)的逆矩阵\( \Lambda \)称为精度。</p>
-<ul>
-<li>一维情况下：如果 \( \mu \)未知，\( \Sigma^2 \)已知，那么先验概率（共轭先验）为一个高斯分布，后验概率也是高斯分布。</li>
-<li>一维情况下：如果 \( \mu \)已知，\( \Sigma^2 \)未知，那么先验概率（共轭先验）为一个Gamma分布，后验概率也是Gamma分布。</li>
-<li>一维情况下：如果 \( \mu \)未知，\( \Sigma^2 \)未知，那么先验概率（共轭先验）为一个Gaussian-Gamma分布，后验概率也是Gaussian-Gamma分布。</li>
-<li>高维情况下：如果 \( \mu \)未知，\( \Lambda^-1 \)已知，那么先验概率（共轭先验）为一个高斯分布，后验概率也是高斯分布。</li>
-<li>高维情况下：如果 \( \mu \)已知，\( \Lambda^-1 \)未知，那么先验概率（共轭先验）为一个Wishart分布，后验概率也是Wishart分布。</li>
-<li>高维情况下：如果 \( \mu \)未知，\( \Lambda^-1 \)未知，那么先验概率（共轭先验）为一个Gaussian-Wishart分布，后验概率也是Gaussian-Wishart分布。</li>
-</ul>
-<h2 id="3-6-学生t分布"><a href="#3-6-学生t分布" class="headerlink" title="3.6 学生t分布"></a>3.6 学生t分布</h2><p>比高斯分布有更长的尾巴，具有更好的“鲁棒性”。没有进行推导，有需要再来吧。</p>
-<h2 id="3-7-高斯混合分布"><a href="#3-7-高斯混合分布" class="headerlink" title="3.7 高斯混合分布"></a>3.7 高斯混合分布</h2><p>高斯混合分布多了一个参数混合系数，极大似然估计无法直接得出解析解，可以使用数值迭代优化。</p>
-<h1 id="4-指数簇分布"><a href="#4-指数簇分布" class="headerlink" title="4 指数簇分布"></a>4 指数簇分布</h1><ul>
-<li><strong>指数簇分布</strong>： 无论是二项分布，多项式分布，高斯分布都可以转化为固定的形式，我们称为指数簇分布。</li>
-<li><strong>最大似然与充分统计量</strong>：我们可以根据指数簇分布来进行极大似然估计，得到参数的固定求解形式。求解的结果只对数据的固定形式产生依赖，我们将固定的数据形式称为充分统计量。</li>
-<li><strong>共轭先验</strong>：通过指数簇分布的似然函数，我们可以看到共轭先验以及后验形式相同。</li>
-<li><strong>无信息先验</strong>：很直接，我们不希望先验给后验提供信息帮助。这里提及了常数先验和反常先验都可以实现无信息的先验。</li>
-</ul>
-<h1 id="5-非参数化模型（参数用于控制模型的复杂度）"><a href="#5-非参数化模型（参数用于控制模型的复杂度）" class="headerlink" title="5 非参数化模型（参数用于控制模型的复杂度）"></a>5 非参数化模型（参数用于控制模型的复杂度）</h1><p>这时候的模型角度从频率派出发，不利用有关数据分布的先验知识，对数据分布不附加任何假定，包括直方图，核方法和最邻近等，是一种从数据样本本身出发研究数据分布特征的方法。这里讨论的随机变量在0-1之间。</p>
-<ul>
-<li><strong>直方图</strong>：简单，缺点是不适合高纬度且不连续。</li>
-<li><strong>核方法</strong>：核方法是直方图的更高阶形式，我们把每个数据点看作一个以其本身为原点的区域（超立方体）。当预测新的数据点时候x_new，我们计算该数据点距离原来数据集上每一点x_old的距离（不平滑的话就是是否在x_old超立方体范围内），并将这些值平均作为x_new的概率密度。距离的计算可以看作是核函数。</li>
-<li><strong>最邻近</strong>：计算x_new与各个x_old距离，确定K值，K个最小的距离的x_old标签决定x_new取值。</li>
-</ul>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
-<li>共轭先验的理解：<code>https://baike.baidu.com/item/%E5%85%B1%E8%BD%AD%E5%85%88%E9%AA%8C%E5%88%86%E5%B8%83/15696678?fr=aladdin</code></li>
-<li>极大似然估计与贝叶斯估计的理解(对于先验，后验，似然函数的认识)：<code>https://blog.csdn.net/liu1194397014/article/details/52766760</code></li>
-<li>高斯分布理解1 <code>https://www.zhihu.com/question/36339816/answer/67043318</code></li>
-<li>高斯分布理解2 <code>https://www.cnblogs.com/shouhuxianjian/p/9773121.html</code></li>
-<li>核密度估计 <code>https://www.jianshu.com/p/249e5ff97c04</code></li>
-</ul>
-
-          
+<li></li></ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/10/22/ProbabilityDistributions/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -647,35 +608,14 @@
 
       
         
-          
-            <h1 id="1-线性基函数模型"><a href="#1-线性基函数模型" class="headerlink" title="1 线性基函数模型"></a>1 线性基函数模型</h1><h2 id="1-1-最大似然然法求解参数"><a href="#1-1-最大似然然法求解参数" class="headerlink" title="1.1 最大似然然法求解参数"></a>1.1 最大似然然法求解参数</h2><p>基函数的引用为了增加模型非线性能力。建立一个线性基函数模型，附加高斯噪音，利用极大似然求解参数可得：<br><img src="https://s2.ax1x.com/2019/10/16/KiV7vt.png" alt><br><img src="https://s2.ax1x.com/2019/10/16/KiZYPH.png" alt><br>对于w，就是伪逆乘以t。而精度的导数，也就是方差由残差计算给出。</p>
-<h2 id="1-2-几何描述"><a href="#1-2-几何描述" class="headerlink" title="1.2 几何描述"></a>1.2 几何描述</h2><p>数据集D有n个数据，每个数据存在一个基函数形式\( \phi \),对于每个基函数的形式\( \phi \)有m个特征，m&lt;n。假设数据集D中所有的特征向量线性无关，那么y被局限在一个m维空间。但是实际的t可能在一个更高不超过n维度的空间，两者最近的时候是t在m维的投影为y。对于\( \phi^T\phi \)，当其不可逆时候，也就是特征向量线性相关，无法求解w。可以通过加入正则项防止奇异矩阵，或者使用svd。</p>
-<h2 id="1-3-顺序学习"><a href="#1-3-顺序学习" class="headerlink" title="1.3 顺序学习"></a>1.3 顺序学习</h2><p>使用逐步梯度下降顺序学习w。</p>
-<h2 id="1-4-正则项"><a href="#1-4-正则项" class="headerlink" title="1.4 正则项"></a>1.4 正则项</h2><p>加入正则项以后变成了如下方式，q=1为lasso回归，q=2为岭回归，分别意味着L1正则化和L2正则化。<br><img src="https://s2.ax1x.com/2019/10/16/KF2gG6.png" alt></p>
-<h2 id="1-5-多个输出"><a href="#1-5-多个输出" class="headerlink" title="1.5 多个输出"></a>1.5 多个输出</h2><p>就是把单变量输出变成向量。</p>
-<h1 id="2-损失期望-偏置-2-方差-噪音"><a href="#2-损失期望-偏置-2-方差-噪音" class="headerlink" title="2 损失期望=偏置^2+方差+噪音"></a>2 损失期望=偏置^2+方差+噪音</h1><p>首先我们知道一个损失函数的期望为如下形式：<br><img src="https://s2.ax1x.com/2019/10/17/KkxmZ9.png" alt><br>我们采用平方差损失：<br><img src="https://s2.ax1x.com/2019/10/17/KAdhl9.png" alt></p>
-<p>我们定义h(x)为真实估计函数，y(x)为拟合函数，t为观测值。我们可以将损失函数化作如下形式：<br><img src="https://s2.ax1x.com/2019/10/17/KAwMkT.png" alt><br>考虑对于多个数据集的情况，将第一项继续拆分可得<br><img src="https://s2.ax1x.com/2019/10/17/KA0RM9.png" alt><br>综上可得<br><img src="https://s2.ax1x.com/2019/10/17/KA0XqI.png" alt><br>我们可以得到如下结论：</p>
-<ul>
-<li>偏置刻画的是构建的模型和真实模型之间的差异，学习算法本身的拟合能力。</li>
-<li>方差刻画的是构建的模型自身的稳定性，多个训练集的变动所导致的学习性能的变化。</li>
-<li>噪声表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界，即刻画了学习问题本身的难度。</li>
-<li>泛化能力由这三个共同组成。</li>
-<li>损失期望的偏差方差分解需要多个数据集。</li>
-</ul>
-<h1 id="3-贝叶斯线性回归"><a href="#3-贝叶斯线性回归" class="headerlink" title="3 贝叶斯线性回归"></a>3 贝叶斯线性回归</h1><h2 id="3-1-参数分布"><a href="#3-1-参数分布" class="headerlink" title="3.1 参数分布"></a>3.1 参数分布</h2><p>首先我们定义似然函数,这是个精度已经知道的高斯分布，下面是对于整个数据集而言：<br><img src="https://s2.ax1x.com/2019/10/17/KEVXPU.png" alt><br>于是对应的共轭先验是：<br><img src="https://s2.ax1x.com/2019/10/17/KEZ8JS.png" alt><br>于是我们可以写出后验：<br><img src="https://s2.ax1x.com/2019/10/17/KEZyz4.png" alt></p>
-<p>最大后验与极大似然的区别主要是公式中多了一个先验。我们把先验做一个退化，就可以把后验的公式退化成极大似然公式。如下：</p>
-<p><img src="https://s2.ax1x.com/2019/10/17/KEmAjH.png" alt><br>通过最大后验可以求解参数。</p>
-<h2 id="3-2-预测分布"><a href="#3-2-预测分布" class="headerlink" title="3.2 预测分布"></a>3.2 预测分布</h2><p><img src="https://s2.ax1x.com/2019/10/17/KEseNq.jpg" alt></p>
-<h2 id="3-3-等价核"><a href="#3-3-等价核" class="headerlink" title="3.3 等价核"></a>3.3 等价核</h2><p><img src="https://s2.ax1x.com/2019/10/20/KMikLQ.png" alt="KMikLQ.png"><br>我们有以下结论：</p>
-<ul>
-<li>预测的x与原来数据集的每一个x存在一个核函数，核函数作为标签的权重线性组合形成回归值。</li>
-<li>核函数，也叫等价核（Equivalent kernel）也叫平滑矩阵（smoother matrix）</li>
-<li>预测的x与原来数据集的某一个x核函数的值越大，相关性越高。</li>
-<li>基函数隐行定义了核函数</li>
-</ul>
-<h1 id="4-贝叶斯模型比较"><a href="#4-贝叶斯模型比较" class="headerlink" title="4 贝叶斯模型比较"></a>4 贝叶斯模型比较</h1><p>略（理论上模型的选择问题，其实现实中用测试集）</p>
-<h1 id="5-证据近似"><a href="#5-证据近似" class="headerlink" title="5 证据近似"></a>5 证据近似</h1>
-          
+          <h1 id="1-线性基函数模型"><a href="#1-线性基函数模型" class="headerlink" title="1 线性基函数模型"></a>1 线性基函数模型</h1><h2 id="1-1-最大似然然法求解参数"><a href="#1-1-最大似然然法求解参数" class="headerlink" title="1.1 最大似然然法求解参数"></a>1.1 最大似然然法求解参数</h2><p>基函数的引用为了增加模型非线性能力。建立一个线性基函数模型，附加高斯噪音，利用极大似然求解参数可得：<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/10/22/LinearModelsForRegression/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

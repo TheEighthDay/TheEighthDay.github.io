@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="1 线性基函数模型1.1 最大似然然法求解参数基函数的引用为了增加模型非线性能力。建立一个线性基函数模型，附加高斯噪音，利用极大似然求解参数可得：对于w，就是伪逆乘以t。而精度的导数，也就是方差由残差计算给出。 1.2 几何描述数据集D有n个数据，每个数据存在一个基函数形式\( \phi \),对于每个基函数的形式\( \phi \)有m个特征，m&amp;lt;n。假设数据集D中所有的特征向量线性无关，">
+<meta name="description" content="1 线性基函数模型1.1 最大似然然法求解参数基函数的引用为了增加模型非线性能力。建立一个线性基函数模型，附加高斯噪音，利用极大似然求解参数可得：">
 <meta name="keywords" content="PRML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PRML：线性回归模型">
 <meta property="og:url" content="http://yoursite.com/2019/10/22/LinearModelsForRegression/index.html">
 <meta property="og:site_name" content="过了星期天的博客">
-<meta property="og:description" content="1 线性基函数模型1.1 最大似然然法求解参数基函数的引用为了增加模型非线性能力。建立一个线性基函数模型，附加高斯噪音，利用极大似然求解参数可得：对于w，就是伪逆乘以t。而精度的导数，也就是方差由残差计算给出。 1.2 几何描述数据集D有n个数据，每个数据存在一个基函数形式\( \phi \),对于每个基函数的形式\( \phi \)有m个特征，m&amp;lt;n。假设数据集D中所有的特征向量线性无关，">
+<meta property="og:description" content="1 线性基函数模型1.1 最大似然然法求解参数基函数的引用为了增加模型非线性能力。建立一个线性基函数模型，附加高斯噪音，利用极大似然求解参数可得：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/16/KiV7vt.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/16/KiZYPH.png">
@@ -103,10 +103,10 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/17/KEmAjH.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/17/KEseNq.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KMikLQ.png">
-<meta property="og:updated_time" content="2019-10-22T12:37:10.961Z">
+<meta property="og:updated_time" content="2019-10-22T12:40:43.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PRML：线性回归模型">
-<meta name="twitter:description" content="1 线性基函数模型1.1 最大似然然法求解参数基函数的引用为了增加模型非线性能力。建立一个线性基函数模型，附加高斯噪音，利用极大似然求解参数可得：对于w，就是伪逆乘以t。而精度的导数，也就是方差由残差计算给出。 1.2 几何描述数据集D有n个数据，每个数据存在一个基函数形式\( \phi \),对于每个基函数的形式\( \phi \)有m个特征，m&amp;lt;n。假设数据集D中所有的特征向量线性无关，">
+<meta name="twitter:description" content="1 线性基函数模型1.1 最大似然然法求解参数基函数的引用为了增加模型非线性能力。建立一个线性基函数模型，附加高斯噪音，利用极大似然求解参数可得：">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/10/16/KiV7vt.png">
 
 
@@ -442,7 +442,7 @@
       
 
       
-        <h1 id="1-线性基函数模型"><a href="#1-线性基函数模型" class="headerlink" title="1 线性基函数模型"></a>1 线性基函数模型</h1><h2 id="1-1-最大似然然法求解参数"><a href="#1-1-最大似然然法求解参数" class="headerlink" title="1.1 最大似然然法求解参数"></a>1.1 最大似然然法求解参数</h2><p>基函数的引用为了增加模型非线性能力。建立一个线性基函数模型，附加高斯噪音，利用极大似然求解参数可得：<br><img src="https://s2.ax1x.com/2019/10/16/KiV7vt.png" alt><br><img src="https://s2.ax1x.com/2019/10/16/KiZYPH.png" alt><br>对于w，就是伪逆乘以t。而精度的导数，也就是方差由残差计算给出。</p>
+        <h1 id="1-线性基函数模型"><a href="#1-线性基函数模型" class="headerlink" title="1 线性基函数模型"></a>1 线性基函数模型</h1><h2 id="1-1-最大似然然法求解参数"><a href="#1-1-最大似然然法求解参数" class="headerlink" title="1.1 最大似然然法求解参数"></a>1.1 最大似然然法求解参数</h2><p>基函数的引用为了增加模型非线性能力。建立一个线性基函数模型，附加高斯噪音，利用极大似然求解参数可得：<br><a id="more"></a><br><img src="https://s2.ax1x.com/2019/10/16/KiV7vt.png" alt><br><img src="https://s2.ax1x.com/2019/10/16/KiZYPH.png" alt><br>对于w，就是伪逆乘以t。而精度的导数，也就是方差由残差计算给出。</p>
 <h2 id="1-2-几何描述"><a href="#1-2-几何描述" class="headerlink" title="1.2 几何描述"></a>1.2 几何描述</h2><p>数据集D有n个数据，每个数据存在一个基函数形式\( \phi \),对于每个基函数的形式\( \phi \)有m个特征，m&lt;n。假设数据集D中所有的特征向量线性无关，那么y被局限在一个m维空间。但是实际的t可能在一个更高不超过n维度的空间，两者最近的时候是t在m维的投影为y。对于\( \phi^T\phi \)，当其不可逆时候，也就是特征向量线性相关，无法求解w。可以通过加入正则项防止奇异矩阵，或者使用svd。</p>
 <h2 id="1-3-顺序学习"><a href="#1-3-顺序学习" class="headerlink" title="1.3 顺序学习"></a>1.3 顺序学习</h2><p>使用逐步梯度下降顺序学习w。</p>
 <h2 id="1-4-正则项"><a href="#1-4-正则项" class="headerlink" title="1.4 正则项"></a>1.4 正则项</h2><p>加入正则项以后变成了如下方式，q=1为lasso回归，q=2为岭回归，分别意味着L1正则化和L2正则化。<br><img src="https://s2.ax1x.com/2019/10/16/KF2gG6.png" alt></p>
@@ -508,8 +508,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/22/ProbabilityDistributions/" rel="prev" title="ProbabilityDistributions">
-                ProbabilityDistributions <i class="fa fa-chevron-right"></i>
+              <a href="/2019/10/22/ProbabilityDistributions/" rel="prev" title="PRML：概率分布">
+                PRML：概率分布 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

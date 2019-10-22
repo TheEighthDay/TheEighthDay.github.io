@@ -81,20 +81,20 @@
 
 
 
-<meta name="description" content="1 概述 共轭先验（conjugate prior）：如果后验分布与先验分布属于同类，则先验分布与后验分布被称为共轭分布，而先验分布被称为似然函数的共轭先验。所有指数家族的分布都有共轭先验。 这章节其实就是在讲似然函数有哪些分布，对应的共轭先验分布。这些似然函数分布都有参数，但是分为两钟参数，一种控制些似然函数分布的参数，一种控制模型的复杂度。此外详细介绍了高斯分布。  2 似然函数分布及其共轭先">
+<meta name="description" content="1 概述 共轭先验（conjugate prior）：如果后验分布与先验分布属于同类，则先验分布与后验分布被称为共轭分布，而先验分布被称为似然函数的共轭先验。所有指数家族的分布都有共轭先验。">
 <meta name="keywords" content="PRML">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ProbabilityDistributions">
+<meta property="og:title" content="PRML：概率分布">
 <meta property="og:url" content="http://yoursite.com/2019/10/22/ProbabilityDistributions/index.html">
 <meta property="og:site_name" content="过了星期天的博客">
-<meta property="og:description" content="1 概述 共轭先验（conjugate prior）：如果后验分布与先验分布属于同类，则先验分布与后验分布被称为共轭分布，而先验分布被称为似然函数的共轭先验。所有指数家族的分布都有共轭先验。 这章节其实就是在讲似然函数有哪些分布，对应的共轭先验分布。这些似然函数分布都有参数，但是分为两钟参数，一种控制些似然函数分布的参数，一种控制模型的复杂度。此外详细介绍了高斯分布。  2 似然函数分布及其共轭先">
+<meta property="og:description" content="1 概述 共轭先验（conjugate prior）：如果后验分布与先验分布属于同类，则先验分布与后验分布被称为共轭分布，而先验分布被称为似然函数的共轭先验。所有指数家族的分布都有共轭先验。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/10/uTRl4O.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/11/uqqXYF.png">
-<meta property="og:updated_time" content="2019-10-22T12:35:39.967Z">
+<meta property="og:updated_time" content="2019-10-22T12:40:38.844Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ProbabilityDistributions">
-<meta name="twitter:description" content="1 概述 共轭先验（conjugate prior）：如果后验分布与先验分布属于同类，则先验分布与后验分布被称为共轭分布，而先验分布被称为似然函数的共轭先验。所有指数家族的分布都有共轭先验。 这章节其实就是在讲似然函数有哪些分布，对应的共轭先验分布。这些似然函数分布都有参数，但是分为两钟参数，一种控制些似然函数分布的参数，一种控制模型的复杂度。此外详细介绍了高斯分布。  2 似然函数分布及其共轭先">
+<meta name="twitter:title" content="PRML：概率分布">
+<meta name="twitter:description" content="1 概述 共轭先验（conjugate prior）：如果后验分布与先验分布属于同类，则先验分布与后验分布被称为共轭分布，而先验分布被称为似然函数的共轭先验。所有指数家族的分布都有共轭先验。">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/10/10/uTRl4O.png">
 
 
@@ -140,7 +140,7 @@
   daovoice('update');
   </script>
 
-  <title>ProbabilityDistributions | 过了星期天的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>PRML：概率分布 | 过了星期天的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -327,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ProbabilityDistributions</h1>
+          <h1 class="post-title" itemprop="name headline">PRML：概率分布</h1>
         
 
         <div class="post-meta">
@@ -432,6 +432,7 @@
       
         <h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h1><ul>
 <li><strong>共轭先验（conjugate prior）</strong>：如果后验分布与先验分布属于同类，则先验分布与后验分布被称为共轭分布，而先验分布被称为似然函数的共轭先验。所有指数家族的分布都有共轭先验。</li>
+<li><a id="more"></a></li>
 <li>这章节其实就是在讲似然函数有哪些分布，对应的共轭先验分布。这些似然函数分布都有参数，但是分为两钟参数，一种控制些似然函数分布的参数，一种控制模型的复杂度。此外详细介绍了高斯分布。</li>
 </ul>
 <h1 id="2-似然函数分布及其共轭先验分布"><a href="#2-似然函数分布及其共轭先验分布" class="headerlink" title="2 似然函数分布及其共轭先验分布"></a>2 似然函数分布及其共轭先验分布</h1><ul>
