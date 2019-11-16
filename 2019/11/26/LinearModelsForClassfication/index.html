@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="PRML,">
 
 
 
@@ -81,17 +81,45 @@
 
 
 
-<meta name="description" content="嗨，我是田凯彬。目前我是电子科技大学本科三年级的学生，你可以在github中看到我更多的工作。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="1 概述本章主要从三个角度解决分类问题。 判别函数：概率生成模型：概率判别模型： 1.1 二分类对于我们需要记得如下图此时一个D-1维的超平面经过D维的空间。我们将w0整合到w,可以得到一个D维度的超平面，经过D+1维度的空间的原点。 1.2 多分类 2 判别函数（硬分类）简单来说，判别函数就是I(f(x))，f(x)&amp;gt;0属于正类，f(x)&amp;lt;0属于负类。x·-&amp;gt;{-1，1}。 2">
+<meta name="keywords" content="PRML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PRML：线性分类模型">
+<meta property="og:url" content="http://yoursite.com/2019/11/26/LinearModelsForClassfication/index.html">
 <meta property="og:site_name" content="过了星期天的博客">
-<meta property="og:description" content="嗨，我是田凯彬。目前我是电子科技大学本科三年级的学生，你可以在github中看到我更多的工作。">
+<meta property="og:description" content="1 概述本章主要从三个角度解决分类问题。 判别函数：概率生成模型：概率判别模型： 1.1 二分类对于我们需要记得如下图此时一个D-1维的超平面经过D维的空间。我们将w0整合到w,可以得到一个D维度的超平面，经过D+1维度的空间的原点。 1.2 多分类 2 判别函数（硬分类）简单来说，判别函数就是I(f(x))，f(x)&amp;gt;0属于正类，f(x)&amp;lt;0属于负类。x·-&amp;gt;{-1，1}。 2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-26T07:58:21.556Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/05/MSJRAg.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/05/MSJ6nf.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/05/MStUWd.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/05/MSadSJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/06/MCUqBR.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/06/MCgfED.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/06/MCguB8.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/06/MC2n2R.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/08/MVnH00.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/08/MVnLkT.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MeruNV.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MerNAx.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MesQat.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/Me6Aje.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/Me6su4.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MecEGV.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MmA2Pe.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/11/MMLpsU.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/11/MMLof1.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/11/MMzj78.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/11/MQSu9J.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/11/MQ99Lq.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/11/MQ9nyR.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/11/MQFJEt.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/11/MQiuOs.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/11/MQiXBn.png">
+<meta property="og:updated_time" content="2019-11-16T07:21:45.638Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="嗨，我是田凯彬。目前我是电子科技大学本科三年级的学生，你可以在github中看到我更多的工作。">
+<meta name="twitter:title" content="PRML：线性分类模型">
+<meta name="twitter:description" content="1 概述本章主要从三个角度解决分类问题。 判别函数：概率生成模型：概率判别模型： 1.1 二分类对于我们需要记得如下图此时一个D-1维的超平面经过D维的空间。我们将w0整合到w,可以得到一个D维度的超平面，经过D+1维度的空间的原点。 1.2 多分类 2 判别函数（硬分类）简单来说，判别函数就是I(f(x))，f(x)&amp;gt;0属于正类，f(x)&amp;lt;0属于负类。x·-&amp;gt;{-1，1}。 2">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/11/05/MSJRAg.png">
 
 
 
@@ -121,7 +149,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/">
+  <link rel="canonical" href="http://yoursite.com/2019/11/26/LinearModelsForClassfication/">
 
 
 
@@ -136,7 +164,7 @@
   daovoice('update');
   </script>
 
-  <title>关于 | 过了星期天的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>PRML：线性分类模型 | 过了星期天的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -294,34 +322,241 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/LinearModelsForClassfication/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="星期八">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="过了星期天的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">关于</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>嗨，我是田凯彬。<br>目前我是电子科技大学本科三年级的学生，你可以在github中看到我更多的工作。</p>
-
+          <h1 class="post-title" itemprop="name headline">PRML：线性分类模型</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-26T15:21:11+08:00">
+                2019-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PRML/" itemprop="url" rel="index">
+                    <span itemprop="name">PRML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h1><p>本章主要从三个角度解决分类问题。</p>
+<p>判别函数：<br>概率生成模型：<br>概率判别模型：</p>
+<h2 id="1-1-二分类"><a href="#1-1-二分类" class="headerlink" title="1.1 二分类"></a>1.1 二分类</h2><p>对于<br><img src="https://s2.ax1x.com/2019/11/05/MSJRAg.png" alt="MSJRAg.png"><br>我们需要记得如下图<br><img src="https://s2.ax1x.com/2019/11/05/MSJ6nf.png" alt="MSJ6nf.png"><br>此时一个D-1维的超平面经过D维的空间。<br>我们将w0整合到w,可以得到一个D维度的超平面，经过D+1维度的空间的原点。<br><img src="https://s2.ax1x.com/2019/11/05/MStUWd.png" alt="MStUWd.png"></p>
+<h2 id="1-2-多分类"><a href="#1-2-多分类" class="headerlink" title="1.2 多分类"></a>1.2 多分类</h2><p><img src="https://s2.ax1x.com/2019/11/05/MSadSJ.png" alt="MSadSJ.png"></p>
+<h1 id="2-判别函数（硬分类）"><a href="#2-判别函数（硬分类）" class="headerlink" title="2 判别函数（硬分类）"></a>2 判别函数（硬分类）</h1><p>简单来说，判别函数就是I(f(x))，f(x)&gt;0属于正类，f(x)&lt;0属于负类。x·-&gt;{-1，1}。</p>
+<h2 id="2-1-最小平方法（学习判别函数参数的方法一）"><a href="#2-1-最小平方法（学习判别函数参数的方法一）" class="headerlink" title="2.1 最小平方法（学习判别函数参数的方法一）"></a>2.1 最小平方法（学习判别函数参数的方法一）</h2><p>二分类情况下y为单变量，求最小二乘法的时候可以求得y的解析值x的伪逆乘以t。我们考虑多分类的情况。多分类时候，我们使用onehot编码，也可以得到精确的解析解。</p>
+<p><a href="https://imgchr.com/i/MCUqBR" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/06/MCUqBR.md.png" alt="MCUqBR.md.png"></a></p>
+<h2 id="2-2-Fisher线性判别函数法（学习判别函数参数的方法二）"><a href="#2-2-Fisher线性判别函数法（学习判别函数参数的方法二）" class="headerlink" title="2.2 Fisher线性判别函数法（学习判别函数参数的方法二）"></a>2.2 Fisher线性判别函数法（学习判别函数参数的方法二）</h2><p>Fisher线性判别函数是从降维的角度出发。思想是最大化一个函数，能够让类均值的在低维度空间投影分开较大，同时让每个类内部的方差较小，从而减少类别的重叠。<br><a href="https://imgchr.com/i/MCgfED" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/06/MCgfED.md.png" alt="MCgfED.md.png"></a></p>
+<p>有<br>\( \boldsymbol{m}_k = \frac{1}{N_k} \sum \boldsymbol{x_n} \)</p>
+<p>\( \boldsymbol{m}_k \) 是第k类的均值。那么有\( m_k \)是投影值。</p>
+<p>$$<br>m_k=\boldsymbol{w}^T\boldsymbol{m}_k<br>$$</p>
+<p>类内方差有<br><img src="https://s2.ax1x.com/2019/11/06/MCguB8.png" alt="MCguB8.png"><br>如果是二分类的话这样我们可以构建最大化函数J(w)<br><img src="https://s2.ax1x.com/2019/11/06/MC2n2R.png" alt="MC2n2R.png"><br>推广到多分类略</p>
+<h2 id="2-3-感知器算法（学习判别函数参数的方法三）"><a href="#2-3-感知器算法（学习判别函数参数的方法三）" class="headerlink" title="2.3 感知器算法（学习判别函数参数的方法三）"></a>2.3 感知器算法（学习判别函数参数的方法三）</h2><p>相比于前面两种方法，感知器算法求解判别函数的参数，从容错的角度出发，利用了了一个激活函数。如下文：<br><a href="https://imgchr.com/i/MVnH00" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/08/MVnH00.md.png" alt="MVnH00.md.png"></a><br><a href="https://imgchr.com/i/MVnLkT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/08/MVnLkT.md.png" alt="MVnLkT.md.png"></a></p>
+<h1 id="概率生成式模型"><a href="#概率生成式模型" class="headerlink" title="概率生成式模型"></a>概率生成式模型</h1><p>这里将从概率的角度看分类问题。这里便是软分类，x·-&gt;（0，1）这里会有两种模型</p>
+<p>在这种方法中，我们先对类条件概率密度p(x|Ck)和类先验概率分布p(Ck)建模，<br>然后使用这两个概率密度通过贝叶斯定理计算后验概率p（Ck|x）。</p>
+<h2 id="sigmoid与softmax函数"><a href="#sigmoid与softmax函数" class="headerlink" title="sigmoid与softmax函数"></a>sigmoid与softmax函数</h2><p>sigmoid函数如下：<br><a href="https://imgchr.com/i/MeruNV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/09/MeruNV.md.png" alt="MeruNV.md.png"></a><br>其中a也等价与如下形式，a被称为logit函数，表示两类概率的比值ln值：<br><img src="https://s2.ax1x.com/2019/11/09/MerNAx.png" alt="MerNAx.png"><br>softmax：<br><a href="https://imgchr.com/i/MesQat" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/09/MesQat.md.png" alt="MesQat.md.png"></a></p>
+<h2 id="连续输入"><a href="#连续输入" class="headerlink" title="连续输入"></a>连续输入</h2><p>假设我们的类条件概率为高斯分布，且每一类的协方差矩阵相同，来看二分类的sigmoid与多分类的softmax。类条件概率密度分布如下：<br><img src="https://s2.ax1x.com/2019/11/09/Me6Aje.png" alt="Me6Aje.png"><br>在二分类sigmoid中，a为 \( \boldsymbol{w}^T\boldsymbol{x}+w_0\)<br>即<br><a href="https://imgchr.com/i/Me6su4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/09/Me6su4.md.png" alt="Me6su4.md.png"></a></p>
+<p>拓展到多分类的softmax。<br><a href="https://imgchr.com/i/MecEGV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/09/MecEGV.md.png" alt="MecEGV.md.png"></a></p>
+<p>由于我们假设类条件概率密度分布都具有相同的协方差矩阵，所以决策边界是线性的，当具有不同的协方差，边界是二次的。而先验只是决定决策边界的移动。</p>
+<h2 id="最大似然解"><a href="#最大似然解" class="headerlink" title="最大似然解"></a>最大似然解</h2><p>一旦我们具体化了类条件概率密度的形式，利用极大似然法就可以求解类先验概率和类条件概率的参数。这里就是一个极大似然法(略)。有待于补充。</p>
+<h2 id="离散特征"><a href="#离散特征" class="headerlink" title="离散特征"></a>离散特征</h2><p><a href="https://imgchr.com/i/MmA2Pe" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/09/MmA2Pe.md.png" alt="MmA2Pe.md.png"></a></p>
+<h2 id="指数族分布"><a href="#指数族分布" class="headerlink" title="指数族分布"></a>指数族分布</h2><p>我们把类条件概率密度分布视作指数族分布形式，可以推导出二分类中，a和多分类中ak更加一般的形式，也可以得到决策边界的更一般形式。</p>
+<h1 id="概率判别式模型"><a href="#概率判别式模型" class="headerlink" title="概率判别式模型"></a>概率判别式模型</h1><h2 id="固定基函数"><a href="#固定基函数" class="headerlink" title="固定基函数"></a>固定基函数</h2><p>基函数实现原空间非线性的分割到基函数空间的线性分割。</p>
+<h2 id="logistic回归"><a href="#logistic回归" class="headerlink" title="logistic回归"></a>logistic回归</h2><h3 id="logistic回归定义"><a href="#logistic回归定义" class="headerlink" title="logistic回归定义"></a>logistic回归定义</h3><p>这里对于sigmoid函数，我们构建时候不再从生成式模型那样从类条件概率和类先验概率的角度出发。而是直接用\( \boldsymbol{w}^T\phi  \)，这样的基函数。即<br><img src="https://s2.ax1x.com/2019/11/11/MMLpsU.png" alt="MMLpsU.png"><br>这样我们可以利用数据，求解极大似然解。</p>
+<p><a href="https://imgchr.com/i/MMLof1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/11/MMLof1.md.png" alt="MMLof1.md.png"></a></p>
+<h3 id="求解参数"><a href="#求解参数" class="headerlink" title="求解参数"></a>求解参数</h3><p>这里涉及到求解w，这里和最小二乘法的求解区别是要是多了sigmoid函数在基函数上，但是不再有解析解了，可以利用梯度下降法和牛顿法。</p>
+<p>梯度下降法的梯度为：<br><img src="https://s2.ax1x.com/2019/11/11/MMzj78.png" alt="MMzj78.png"></p>
+<p>牛顿法的介绍以及应用于最小二乘法：<br><img src="https://s2.ax1x.com/2019/11/11/MQSu9J.png" alt="MQSu9J.png"></p>
+<p>牛顿法应用于求解logistic回归的损失函数：</p>
+<p><img src="https://s2.ax1x.com/2019/11/11/MQ99Lq.png" alt="MQ99Lq.png"><br><img src="https://s2.ax1x.com/2019/11/11/MQ9nyR.png" alt="MQ9nyR.png"></p>
+<p>但是极大似然法会导致过拟合严重，如果使用优化算法如梯度下降法和牛顿法，无法判别哪个解更加好。通过加入参数先验把极大似然法变成最大后验法（等价于为损失函数加上正则项）来减少过拟合。</p>
+<h2 id="多分类的logistic回归"><a href="#多分类的logistic回归" class="headerlink" title="多分类的logistic回归"></a>多分类的logistic回归</h2><p>多分类使用softmax函数。<br><img src="https://s2.ax1x.com/2019/11/11/MQFJEt.png" alt="MQFJEt.png"><br>在生成式模型中我们通过极大似然估计法求解类条件概率和类先验概率的参数，隐形确定了模型的参数。而这里我们直接对模型的参数使用极大似然法。<br><img src="https://s2.ax1x.com/2019/11/11/MQiuOs.png" alt="MQiuOs.png"><br>下一步则是取log得出损失函数然后利用优化算法求解参数。<br><img src="https://s2.ax1x.com/2019/11/11/MQiXBn.png" alt="MQiXBn.png"></p>
+<h2 id="probit回归"><a href="#probit回归" class="headerlink" title="probit回归"></a>probit回归</h2><h2 id="标准链接函数"><a href="#标准链接函数" class="headerlink" title="标准链接函数"></a>标准链接函数</h2><h1 id="拉普拉斯近似"><a href="#拉普拉斯近似" class="headerlink" title="拉普拉斯近似"></a>拉普拉斯近似</h1><p>由于后验概率分布的计算依赖于先验概率分布函数、似然概率分布函数，当这二者共轭时，后验概率与先验概率服从相同的分布函数，从而可以推导计算出后验概率分布(posterior could be computed analytically)。但是，当这二者不共轭时，则是计算后验概率分布的近似值。计算近似值一共有三种方法:</p>
+<ul>
+<li>点估计法(point estimate — MAP)</li>
+<li>拉普拉斯近似法</li>
+<li>Metropolis-Hastings采样法。</li>
+</ul>
+<p>点估计法(point estimate — maximum a posteriori)其实就是最大后验法，而拉普拉斯近似法这里将介绍，采样法后面会介绍。<br>简单来说点估计是：<br>\( p(\boldsymbol{w}|\boldsymbol{t},\boldsymbol{X}) \approx max( p(\boldsymbol{t}|\boldsymbol{X},\boldsymbol{w})p(\boldsymbol{w}|\theta ) )=max( \prod_{n=1}^N p(t_n|\boldsymbol{x}_n, \boldsymbol{w}) p(\boldsymbol{w}|\boldsymbol{\theta}) ) \)</p>
+<p>而无法确定一个概率分布的具体密度函数，如果这样的概率分布为参数后验概率，贝叶斯推导无法进行。<br>拉普拉斯近似是：<br>\( p(\boldsymbol{w}|\boldsymbol{t},\boldsymbol{X}) \approx N(\boldsymbol{u},\boldsymbol{A^{-1}} ) \)</p>
+<p>那么拉普拉斯是怎么近似的呢？我们把后验概率写成如下形式</p>
+<p>\( p(\boldsymbol{w};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta}) \)</p>
+<p>把该式子先log再在一个局部最大值（对于\( \boldsymbol{w} \)一阶求导等于0，二阶小于0或者负定，通常可以选择最大后验法中的\( \boldsymbol{\hat{w}}\)）处泰勒展开可以得到：<br>$$<br>\ln p(\boldsymbol{w};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta}) \approx \ln p(\boldsymbol{\hat{w}};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta})+0-<br>\frac{1}{2}(\boldsymbol{w}-\boldsymbol{\hat{w}})^T\boldsymbol{A}(\boldsymbol{w}-\boldsymbol{\hat{w}})<br>$$<br>其中有<br>$$<br>\boldsymbol{A}=-\frac{d^{2}}{dw^2} \ln p(\boldsymbol{w};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta})\bigg|_{w=\hat{w}}<br>$$<br>用exp还原近似的式子为<br>$$<br>p(\boldsymbol{w};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta}) \approx p(\boldsymbol{\hat{w}};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta}) exp (-\frac{1}{2}(\boldsymbol{w}-\boldsymbol{\hat{w}})^T\boldsymbol{A}(\boldsymbol{w}-\boldsymbol{\hat{w}}))<br>$$<br>对比高斯分布密度函数可以得出\( \boldsymbol{A}\)为精度，而均值\(\boldsymbol{u}\) 为\( \boldsymbol{\hat{w}}\)。</p>
+<h2 id="模型比较与BIC"><a href="#模型比较与BIC" class="headerlink" title="模型比较与BIC"></a>模型比较与BIC</h2><p>未完待续</p>
+<h1 id="贝叶斯的logistic回归"><a href="#贝叶斯的logistic回归" class="headerlink" title="贝叶斯的logistic回归"></a>贝叶斯的logistic回归</h1><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>牛顿法与迭代重加权最小平方：<code>https://blog.csdn.net/xuanyuansen/article/details/41050507</code><br>拉普拉斯近似：<code>https://www.cnblogs.com/hapjin/p/8834794.html</code>,<code>https://www.cnblogs.com/hapjin/p/8834794.html</code></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PRML/" rel="tag"># PRML</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/22/ProbabilityDistributions/" rel="next" title="PRML：概率分布">
+                <i class="fa fa-chevron-left"></i> PRML：概率分布
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -359,8 +594,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -457,6 +701,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-概述"><span class="nav-number">1.</span> <span class="nav-text">1 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-二分类"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 二分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-多分类"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 多分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-判别函数（硬分类）"><span class="nav-number">2.</span> <span class="nav-text">2 判别函数（硬分类）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-最小平方法（学习判别函数参数的方法一）"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 最小平方法（学习判别函数参数的方法一）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Fisher线性判别函数法（学习判别函数参数的方法二）"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 Fisher线性判别函数法（学习判别函数参数的方法二）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-感知器算法（学习判别函数参数的方法三）"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 感知器算法（学习判别函数参数的方法三）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概率生成式模型"><span class="nav-number">3.</span> <span class="nav-text">概率生成式模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sigmoid与softmax函数"><span class="nav-number">3.1.</span> <span class="nav-text">sigmoid与softmax函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连续输入"><span class="nav-number">3.2.</span> <span class="nav-text">连续输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大似然解"><span class="nav-number">3.3.</span> <span class="nav-text">最大似然解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#离散特征"><span class="nav-number">3.4.</span> <span class="nav-text">离散特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指数族分布"><span class="nav-number">3.5.</span> <span class="nav-text">指数族分布</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概率判别式模型"><span class="nav-number">4.</span> <span class="nav-text">概率判别式模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#固定基函数"><span class="nav-number">4.1.</span> <span class="nav-text">固定基函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logistic回归"><span class="nav-number">4.2.</span> <span class="nav-text">logistic回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#logistic回归定义"><span class="nav-number">4.2.1.</span> <span class="nav-text">logistic回归定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求解参数"><span class="nav-number">4.2.2.</span> <span class="nav-text">求解参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多分类的logistic回归"><span class="nav-number">4.3.</span> <span class="nav-text">多分类的logistic回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#probit回归"><span class="nav-number">4.4.</span> <span class="nav-text">probit回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准链接函数"><span class="nav-number">4.5.</span> <span class="nav-text">标准链接函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拉普拉斯近似"><span class="nav-number">5.</span> <span class="nav-text">拉普拉斯近似</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型比较与BIC"><span class="nav-number">5.1.</span> <span class="nav-text">模型比较与BIC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#贝叶斯的logistic回归"><span class="nav-number">6.</span> <span class="nav-text">贝叶斯的logistic回归</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">7.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
