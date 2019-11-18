@@ -105,6 +105,8 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/09/Me6Aje.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/09/Me6su4.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MecEGV.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/18/M6NDAg.gif">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/18/M6N7C9.gif">
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/11/MMLpsU.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/11/MMLof1.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/11/MMzj78.png">
@@ -118,7 +120,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/18/M68BKU.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/18/M68yVJ.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/18/M6GQiR.png">
-<meta property="og:updated_time" content="2019-11-18T08:58:59.335Z">
+<meta property="og:updated_time" content="2019-11-18T09:28:04.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PRML：线性分类模型">
 <meta name="twitter:description" content="1 概述本章主要从判别函数（硬分类）与概率模型（软分类）两个角度解决二分类与多分类的问题。">
@@ -479,9 +481,10 @@
 <p>拓展到多分类的softmax。<br><a href="https://imgchr.com/i/MecEGV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/09/MecEGV.md.png" alt="MecEGV.md.png"></a></p>
 <p>由于我们假设类条件概率密度分布都具有相同的协方差矩阵，所以决策边界是线性的，当具有不同的协方差，边界是二次的。而先验只是决定决策边界的移动。</p>
 <h4 id="3-2-2-2-最大似然解"><a href="#3-2-2-2-最大似然解" class="headerlink" title="3.2.2.2 最大似然解"></a>3.2.2.2 最大似然解</h4><p>一旦我们具体化了类条件概率密度和类先验概率密度的形式，利用极大似然法就可以求解类先验概率和类条件概率的参数。书上举了低维的高斯分布与伯努利分布作为类条件概率密度和先验概率密度。</p>
-<h3 id="3-2-3-朴素贝叶斯模型（Naive-Bayes-classifier）"><a href="#3-2-3-朴素贝叶斯模型（Naive-Bayes-classifier）" class="headerlink" title="3.2.3 朴素贝叶斯模型（Naive Bayes classifier）"></a>3.2.3 朴素贝叶斯模型（Naive Bayes classifier）</h3><p>一般来说朴素贝叶斯分类器是离散的，广意的朴素贝叶斯就是连续的高斯判别模型和离散的朴素贝叶斯结合。我们认为特征向量\( \boldsymbol{x} \)中每一个特征值 \( x_i \)都是独立的，这就是朴素贝叶斯假设。根据对P条件概率(X=x|Y=c_k)的假设分布不同,分为:伯努利假设是伯努利分布(其实应该是多变量伯努利分布),多项式假设是多项式分布,而高斯也就是假设是高斯分布(其实是多变量高斯分布)。</p>
-<p>首先我们观察伯努利假设，\( \boldsymbol{x}=[x_i,x_2 \dots x_d] \) 中\( x_i\epsilon{0，1} \)，\( x_i \sim Ber(\mu)\)。这里可以理解为以一篇文章中所有单词有和无作为特征，\( \boldsymbol{x} \)特征向量长度为文章中词汇的数量d。最终形式：<br>\p(C_k|\textbf{x})=\frac{p(x_i,x_2\dots x_d|C_k)p(C_k)}{p(\boldsymbol{x})}=\frac{[\prod_{i=1}^{d}{\mu_{ki}}^{x_i}{(1-{\mu_{ki}})}^{1-x_i}]p(C_k)}{p(\boldsymbol{x})} \)</p>
-<p>接着我们观察多项式假设，，\( \boldsymbol{x}=[x_i,x_2 \dots x_d] \),且\( \boldsymbol{x} \sim Multi(n,\boldsymbol{\mu}) \),其中\( \mu = [\mu_1, …, \mu_d] \)。可以理解为，一篇文章中所有单词有n个，每个单词可能出现0-d种词汇（词典大小为d）。所以\( x_i,x_2 \dots x_d \)代表着大小为d的词典中每个词出现的频率。最终形式：<br>p(C_k|\textbf{x})=\frac{Multi(n,\boldsymbol{\mu})p(C_k)}{p(\boldsymbol{x})}=\frac{[\frac{n!}{x_1!x_2! \dots x_d!}\prod_{i=1}^d {\mu_{ki}}^{x_i}]p(C_k)}{p(\boldsymbol{x})}</p>
+<h3 id="3-2-3-朴素贝叶斯模型（Naive-Bayes-classifier）"><a href="#3-2-3-朴素贝叶斯模型（Naive-Bayes-classifier）" class="headerlink" title="3.2.3 朴素贝叶斯模型（Naive Bayes classifier）"></a>3.2.3 朴素贝叶斯模型（Naive Bayes classifier）</h3><p>一般来说朴素贝叶斯分类器是离散的，广意的朴素贝叶斯就是连续的高斯判别模型和离散的朴素贝叶斯结合。</p>
+<p>我们认为特征向量\( \boldsymbol{x} \)中每一个特征值 \( x_i \)都是独立的，这就是朴素贝叶斯假设。根据条件概率p(X=x|Y=c_k)的假设分布不同,分为伯努利假设是伯努利分布(其实应该是多变量伯努利分布),多项式假设是多项式分布,而高斯也就是假设是高斯分布(其实是多变量高斯分布)。</p>
+<p>首先我们观察伯努利假设\( \boldsymbol{x} = [x_1,x_2 … x_d] \) 中\( x_i\epsilon{0，1} \)，\( x_i \sim Ber(\mu)\)。这里可以理解为以一篇文章中所有单词有和无作为特征，\( \boldsymbol{x} \)特征向量长度为文章中词汇的数量d。最终形式：<br><img src="https://s2.ax1x.com/2019/11/18/M6NDAg.gif" alt="M6NDAg.gif"><br>\( p(C_k|\textbf{x}) = \frac{p(x_i,x_2\dots x_d|C_k)p(C_k)}{p(\boldsymbol{x})} = \frac{[\prod_{i = 1}^{d}{\mu_{ki}}^{x_i}{(1-{\mu_{ki}})}^{1-x_i}]p(C_k)}{p(\boldsymbol{x})} \)</p>
+<p>接着我们观察多项式假设，，\( \boldsymbol{x}=[x_i,x_2 \dots x_d] \),且\( \boldsymbol{x} \sim Multi(n,\boldsymbol{\mu}) \),其中\( \mu = [\mu_1, …, \mu_d] \)。可以理解为，一篇文章中所有单词有n个，每个单词可能出现0-d种词汇（词典大小为d）。所以\( x_i,x_2 \dots x_d \)代表着大小为d的词典中每个词出现的频率。最终形式：<br><img src="https://s2.ax1x.com/2019/11/18/M6N7C9.gif" alt="M6N7C9.gif"><br>\(p(C_k|\textbf{x})=\frac{Multi(n,\boldsymbol{\mu})p(C_k)}{p(\boldsymbol{x})}=\frac{[\frac{n!}{x_1!x_2! \dots x_d!}\prod_{i=1}^d {\mu_{ki}}^{x_i}]p(C_k)}{p(\boldsymbol{x})}\)</p>
 <p>最后的高斯假设就是高斯判别分析。</p>
 <p>一般情况在朴素贝叶斯中还会加入拉普拉斯平滑防止出现错误，就是为每个类计算时候+1。</p>
 <h3 id="3-2-4-指数族分布下的概率生成模型"><a href="#3-2-4-指数族分布下的概率生成模型" class="headerlink" title="3.2.4 指数族分布下的概率生成模型"></a>3.2.4 指数族分布下的概率生成模型</h3><p>我们把类条件概率密度分布视作指数族分布形式，可以推导出二分类中，a和多分类中ak更加一般的形式。</p>
@@ -1310,7 +1313,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -1319,5 +1322,5 @@
   
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
