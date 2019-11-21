@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-18T09:28:04.906Z</updated>
+  <updated>2019-11-21T13:27:00.113Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PRML：线性回归模型</title>
+    <link href="http://yoursite.com/2019/11/21/LinearModelsForRegression/"/>
+    <id>http://yoursite.com/2019/11/21/LinearModelsForRegression/</id>
+    <published>2019-11-21T12:32:28.000Z</published>
+    <updated>2019-11-21T13:27:00.113Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-回归问题的定义"><a href="#1-回归问题的定义" class="headerlink" title="1 回归问题的定义"></a>1 回归问题的定义</h1><p>数据定义<br>\( Data={X,\boldsymbol{t}},X=[\boldsymbol{x_1}…\boldsymbol{x_n}]^T,\boldsymbol{x_1}\epsilon R^p,\boldsymbol{t}=[t_1…t_n],t_1 \epsilon R \)<br><a id="more"></a><br>需要解决的问题<br>\( y=\boldsymbol{w}^T\boldsymbol{x},t=y+\varepsilon ,<br>\varepsilon \sim \mathit{N}(0,\sigma^2) \)</p><p>对于一个新的数据 \( x^{* } \),我们想要得到 \ ( y^{* } \),在频率派中得到的\ ( y^{* } \)。</p><h1 id="2-频率派思想"><a href="#2-频率派思想" class="headerlink" title="2 频率派思想"></a>2 频率派思想</h1><h2 id="2-1-损失期望-偏置-2-方差-噪音"><a href="#2-1-损失期望-偏置-2-方差-噪音" class="headerlink" title="2.1 损失期望=偏置^2+方差+噪音"></a>2.1 损失期望=偏置^2+方差+噪音</h2><p>首先我们知道一个损失函数的期望为如下形式：<br><img src="https://s2.ax1x.com/2019/10/17/KkxmZ9.png" alt><br>我们采用平方差损失：<br><img src="https://s2.ax1x.com/2019/10/17/KAdhl9.png" alt></p><p>我们定义h(x)为真实估计函数，y(x)为拟合函数，t为观测值。我们可以将损失函数化作如下形式：<br><img src="https://s2.ax1x.com/2019/10/17/KAwMkT.png" alt><br>考虑对于多个数据集的情况，将第一项继续拆分可得<br><img src="https://s2.ax1x.com/2019/10/17/KA0RM9.png" alt><br>综上可得<br><img src="https://s2.ax1x.com/2019/10/17/KA0XqI.png" alt><br>我们可以得到如下结论：</p><ul><li>偏置刻画的是构建的模型和真实模型之间的差异，学习算法本身的拟合能力。</li><li>方差刻画的是构建的模型自身的稳定性，多个训练集的变动所导致的学习性能的变化。</li><li>噪声表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界，即刻画了学习问题本身的难度。</li><li>泛化能力由这三个共同组成。</li><li>损失期望的偏差方差分解需要多个数据集。</li></ul><h2 id="2-2-频率派求解模型"><a href="#2-2-频率派求解模型" class="headerlink" title="2.2 频率派求解模型"></a>2.2 频率派求解模型</h2><p>这里本质上就是寻找w的值。</p><h3 id="2-2-1-最小二乘估计-LSE"><a href="#2-2-1-最小二乘估计-LSE" class="headerlink" title="2.2.1 最小二乘估计 LSE"></a>2.2.1 最小二乘估计 LSE</h3><p>求解w<br>\( \boldsymbol{w^{*}}=argmin \quad (\boldsymbol{t}-X\boldsymbol{w})^T(\boldsymbol{t}-X\boldsymbol{w})=(X^TX)^{-1}X^T\boldsymbol{t} \)<br>模型预测<br>\( t^{* }=(\boldsymbol{x}^{* })^T\boldsymbol{w^{*}} \)</p><h3 id="2-2-2-极大似然估计-MLE"><a href="#2-2-2-极大似然估计-MLE" class="headerlink" title="2.2.2 极大似然估计 MLE"></a>2.2.2 极大似然估计 MLE</h3><p><img src="https://s2.ax1x.com/2019/11/21/MIkebQ.png" alt="MIkebQ.png"><br>求解w<br>和w有关的项与极小二乘法的损失函数一样。<br>\( \boldsymbol{w^{*}}=argmin \quad (\boldsymbol{t}-X\boldsymbol{w})^T(\boldsymbol{t}-X\boldsymbol{w})=(X^TX)^{-1}X^T\boldsymbol{t} \)<br>同时可以得出<br><img src="https://s2.ax1x.com/2019/10/16/KiZYPH.png" alt><br>模型预测<br>\( t^{* }=(\boldsymbol{x}^{* })^T\boldsymbol{w^{*}} \)</p><h3 id="2-2-3-对于解析解的几何解释"><a href="#2-2-3-对于解析解的几何解释" class="headerlink" title="2.2.3 对于解析解的几何解释"></a>2.2.3 对于解析解的几何解释</h3><p><img src="https://s2.ax1x.com/2019/11/21/MItAkn.png" alt="MItAkn.png">也就是t乘以投影矩阵等于y。<br>\( (X(X^TX)^{-1}X^T)(\boldsymbol{t}) = (X\boldsymbol{w}) \)</p><h3 id="2-2-4-带有正则项的LSE"><a href="#2-2-4-带有正则项的LSE" class="headerlink" title="2.2.4 带有正则项的LSE"></a>2.2.4 带有正则项的LSE</h3><p>加入正则项以后变成了如下方式，q=1为lasso回归，q=2为岭回归，分别意味着增加L1正则化和L2正则化，或者说增加L1范数，L2范数，正则化系数人为设定。<br><img src="https://s2.ax1x.com/2019/10/16/KF2gG6.png" alt></p><p>正则项的作用：<br>L1也可以防止过拟合，主要作用是用于构建稀疏权值矩阵，用于特征选择。<br>L2正则可以防止奇异矩阵，也就是防止求伪逆时候的矩阵不可逆，防止过拟合。<br>L2没有稀疏的作用是因为没有棱角。具体参考文献。</p><h1 id="3-贝叶斯派的思想"><a href="#3-贝叶斯派的思想" class="headerlink" title="3 贝叶斯派的思想"></a>3 贝叶斯派的思想</h1><h2 id="3-1-参数后验为点估计（不完全的贝叶斯派）"><a href="#3-1-参数后验为点估计（不完全的贝叶斯派）" class="headerlink" title="3.1 参数后验为点估计（不完全的贝叶斯派）"></a>3.1 参数后验为点估计（不完全的贝叶斯派）</h2><h3 id="3-1-1-模型推断"><a href="#3-1-1-模型推断" class="headerlink" title="3.1.1 模型推断"></a>3.1.1 模型推断</h3><p>就是MAP最大后验法（附加高斯噪音），这时候我们对于参数的后验概率只用一个值来代替。当参数先验服从高斯分布，参数的后验概率等同于最小二乘法+L2正则项的结果，当参数先验服从Lapalce分布，参数的后验概率等同于最小二乘法+L1正则项的结果。我们观察，当参数先验服从高斯分布。利用极大似然法求解下面式子可以得到参数后验的点估计<br>\(  \boldsymbol{w^{*}} = argmax \quad p(\boldsymbol{w}|\boldsymbol{t},X) \)<br>\(  \boldsymbol{w^{*}} = argmax \quad p(\boldsymbol{t}|\boldsymbol{w},X)p(\boldsymbol{w}) \)<br>其中有<br>\( \boldsymbol{t}|\boldsymbol{w},X \sim N(X\boldsymbol{w},\Sigma_1 ) \)<br>等价于:<br><img src="https://s2.ax1x.com/2019/10/17/KEVXPU.png" alt><br>\( \boldsymbol{w} \sim N(\boldsymbol{\mu},\Sigma_2)\)<br>一般设置为：<br>\( p(\boldsymbol{w}) \sim N(0,\alpha^{-1} I) \)<br>极大似然函数为<br>\( \boldsymbol{w^{*}} = argmax \quad \prod_i^{100} (N(\boldsymbol{w}^T x_i,\beta^{-1}) N(0,\alpha^{-1}))^{t_i} \)</p><p>所以有<br>\( \boldsymbol{w^{*}} = (\alpha^{-1} I + X^TX)^{-1} X^T \boldsymbol{t} \)</p><h3 id="3-1-2-模型预测"><a href="#3-1-2-模型预测" class="headerlink" title="3.1.2 模型预测"></a>3.1.2 模型预测</h3><p>\( t^{* } \sim N({\boldsymbol{x}^{* }}^T\boldsymbol{w^{*}},\beta^{-1})\)</p><h2 id="3-2-参数后验完全是概率分布"><a href="#3-2-参数后验完全是概率分布" class="headerlink" title="3.2 参数后验完全是概率分布"></a>3.2 参数后验完全是概率分布</h2><h3 id="3-2-1-模型推导"><a href="#3-2-1-模型推导" class="headerlink" title="3.2.1 模型推导"></a>3.2.1 模型推导</h3><p>这次我们要寻找到真正的\( p(\boldsymbol{w}|\boldsymbol{t},X) \)分布，忽略分母积分常量<br>\( p(\boldsymbol{w}|\boldsymbol{t},X) \propto p(\boldsymbol{t}|\boldsymbol{w},X)p(\boldsymbol{w})\)。<br>其中有 \( p(\boldsymbol{t}|\boldsymbol{w},X) \)为：</p><p><img src="https://s2.ax1x.com/2019/10/17/KEVXPU.png" alt><br>其中有 \( p(\boldsymbol{w}) \) 为：<br>\( p(\boldsymbol{w}) \sim N(0,\alpha^{-1} I) \)<br>经过计算可得<br>于是我们可以写出后验：<br>\( \boldsymbol{w}|\boldsymbol{t},X \sim N(\boldsymbol{m_N},S_N) \)<br><img src="https://s2.ax1x.com/2019/11/21/MIXyex.png" alt="MIXyex.png"></p><h3 id="3-2-2-模型预测"><a href="#3-2-2-模型预测" class="headerlink" title="3.2.2 模型预测"></a>3.2.2 模型预测</h3><p>\( p(t|\boldsymbol{t},X,\boldsymbol{x^{*}})=\int p(t|\boldsymbol{x^{*}},\boldsymbol{w},\beta)p(\boldsymbol{w}|\boldsymbol{t},X,\alpha,\beta) d\boldsymbol{w} \)<br>也就是<br>\( p(t|\boldsymbol{t},X,\boldsymbol{x^{*}}) = N(\boldsymbol{m_N}^T\boldsymbol{x^{*}},\beta^{-1}+{\boldsymbol{x^{*}}}^TS_N\boldsymbol{x^{*}}) \)<br>也就是<br>\( t^{* } \sim N(\boldsymbol{m_N}^T\boldsymbol{x^{*}},\beta^{-1}+{\boldsymbol{x^{*}}}^TS_N\boldsymbol{x^{*}}) \)</p><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>正交投影：<code>https://www.cnblogs.com/mfrbuaa/p/5319365.html</code><br>L1与L2正则化的区别：<code>https://blog.csdn.net/TXBSW/article/details/79073933</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1-回归问题的定义&quot;&gt;&lt;a href=&quot;#1-回归问题的定义&quot; class=&quot;headerlink&quot; title=&quot;1 回归问题的定义&quot;&gt;&lt;/a&gt;1 回归问题的定义&lt;/h1&gt;&lt;p&gt;数据定义&lt;br&gt;\( Data={X,\boldsymbol{t}},X=[\boldsymbol{x_1}…\boldsymbol{x_n}]^T,\boldsymbol{x_1}\epsilon R^p,\boldsymbol{t}=[t_1…t_n],t_1 \epsilon R \)&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="PRML" scheme="http://yoursite.com/categories/PRML/"/>
+    
+    
+      <category term="PRML" scheme="http://yoursite.com/tags/PRML/"/>
+    
+  </entry>
   
   <entry>
     <title>PRML：线性分类模型</title>
@@ -52,28 +74,6 @@
       &lt;h1 id=&quot;1-概述&quot;&gt;&lt;a href=&quot;#1-概述&quot; class=&quot;headerlink&quot; title=&quot;1 概述&quot;&gt;&lt;/a&gt;1 概述&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;共轭先验（conjugate prior）&lt;/strong&gt;：如果后验分布与先验分布属于同类，则先验分布与后验分布被称为共轭分布，而先验分布被称为似然函数的共轭先验。所有指数家族的分布都有共轭先验。&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="PRML" scheme="http://yoursite.com/categories/PRML/"/>
-    
-    
-      <category term="PRML" scheme="http://yoursite.com/tags/PRML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PRML：线性回归模型</title>
-    <link href="http://yoursite.com/2019/10/22/LinearModelsForRegression/"/>
-    <id>http://yoursite.com/2019/10/22/LinearModelsForRegression/</id>
-    <published>2019-10-22T12:32:28.000Z</published>
-    <updated>2019-10-22T12:40:43.141Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="1-线性基函数模型"><a href="#1-线性基函数模型" class="headerlink" title="1 线性基函数模型"></a>1 线性基函数模型</h1><h2 id="1-1-最大似然然法求解参数"><a href="#1-1-最大似然然法求解参数" class="headerlink" title="1.1 最大似然然法求解参数"></a>1.1 最大似然然法求解参数</h2><p>基函数的引用为了增加模型非线性能力。建立一个线性基函数模型，附加高斯噪音，利用极大似然求解参数可得：<br><a id="more"></a><br><img src="https://s2.ax1x.com/2019/10/16/KiV7vt.png" alt><br><img src="https://s2.ax1x.com/2019/10/16/KiZYPH.png" alt><br>对于w，就是伪逆乘以t。而精度的导数，也就是方差由残差计算给出。</p><h2 id="1-2-几何描述"><a href="#1-2-几何描述" class="headerlink" title="1.2 几何描述"></a>1.2 几何描述</h2><p>数据集D有n个数据，每个数据存在一个基函数形式\( \phi \),对于每个基函数的形式\( \phi \)有m个特征，m&lt;n。假设数据集D中所有的特征向量线性无关，那么y被局限在一个m维空间。但是实际的t可能在一个更高不超过n维度的空间，两者最近的时候是t在m维的投影为y。对于\( \phi^T\phi \)，当其不可逆时候，也就是特征向量线性相关，无法求解w。可以通过加入正则项防止奇异矩阵，或者使用svd。</p><h2 id="1-3-顺序学习"><a href="#1-3-顺序学习" class="headerlink" title="1.3 顺序学习"></a>1.3 顺序学习</h2><p>使用逐步梯度下降顺序学习w。</p><h2 id="1-4-正则项"><a href="#1-4-正则项" class="headerlink" title="1.4 正则项"></a>1.4 正则项</h2><p>加入正则项以后变成了如下方式，q=1为lasso回归，q=2为岭回归，分别意味着L1正则化和L2正则化。<br><img src="https://s2.ax1x.com/2019/10/16/KF2gG6.png" alt></p><h2 id="1-5-多个输出"><a href="#1-5-多个输出" class="headerlink" title="1.5 多个输出"></a>1.5 多个输出</h2><p>就是把单变量输出变成向量。</p><h1 id="2-损失期望-偏置-2-方差-噪音"><a href="#2-损失期望-偏置-2-方差-噪音" class="headerlink" title="2 损失期望=偏置^2+方差+噪音"></a>2 损失期望=偏置^2+方差+噪音</h1><p>首先我们知道一个损失函数的期望为如下形式：<br><img src="https://s2.ax1x.com/2019/10/17/KkxmZ9.png" alt><br>我们采用平方差损失：<br><img src="https://s2.ax1x.com/2019/10/17/KAdhl9.png" alt></p><p>我们定义h(x)为真实估计函数，y(x)为拟合函数，t为观测值。我们可以将损失函数化作如下形式：<br><img src="https://s2.ax1x.com/2019/10/17/KAwMkT.png" alt><br>考虑对于多个数据集的情况，将第一项继续拆分可得<br><img src="https://s2.ax1x.com/2019/10/17/KA0RM9.png" alt><br>综上可得<br><img src="https://s2.ax1x.com/2019/10/17/KA0XqI.png" alt><br>我们可以得到如下结论：</p><ul><li>偏置刻画的是构建的模型和真实模型之间的差异，学习算法本身的拟合能力。</li><li>方差刻画的是构建的模型自身的稳定性，多个训练集的变动所导致的学习性能的变化。</li><li>噪声表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界，即刻画了学习问题本身的难度。</li><li>泛化能力由这三个共同组成。</li><li>损失期望的偏差方差分解需要多个数据集。</li></ul><h1 id="3-贝叶斯线性回归"><a href="#3-贝叶斯线性回归" class="headerlink" title="3 贝叶斯线性回归"></a>3 贝叶斯线性回归</h1><h2 id="3-1-参数分布"><a href="#3-1-参数分布" class="headerlink" title="3.1 参数分布"></a>3.1 参数分布</h2><p>首先我们定义似然函数,这是个精度已经知道的高斯分布，下面是对于整个数据集而言：<br><img src="https://s2.ax1x.com/2019/10/17/KEVXPU.png" alt><br>于是对应的共轭先验是：<br><img src="https://s2.ax1x.com/2019/10/17/KEZ8JS.png" alt><br>于是我们可以写出后验：<br><img src="https://s2.ax1x.com/2019/10/17/KEZyz4.png" alt></p><p>最大后验与极大似然的区别主要是公式中多了一个先验。我们把先验做一个退化，就可以把后验的公式退化成极大似然公式。如下：</p><p><img src="https://s2.ax1x.com/2019/10/17/KEmAjH.png" alt><br>通过最大后验可以求解参数。</p><h2 id="3-2-预测分布"><a href="#3-2-预测分布" class="headerlink" title="3.2 预测分布"></a>3.2 预测分布</h2><p><img src="https://s2.ax1x.com/2019/10/17/KEseNq.jpg" alt></p><h2 id="3-3-等价核"><a href="#3-3-等价核" class="headerlink" title="3.3 等价核"></a>3.3 等价核</h2><p><img src="https://s2.ax1x.com/2019/10/20/KMikLQ.png" alt="KMikLQ.png"><br>我们有以下结论：</p><ul><li>预测的x与原来数据集的每一个x存在一个核函数，核函数作为标签的权重线性组合形成回归值。</li><li>核函数，也叫等价核（Equivalent kernel）也叫平滑矩阵（smoother matrix）</li><li>预测的x与原来数据集的某一个x核函数的值越大，相关性越高。</li><li>基函数隐行定义了核函数</li></ul><h1 id="4-贝叶斯模型比较"><a href="#4-贝叶斯模型比较" class="headerlink" title="4 贝叶斯模型比较"></a>4 贝叶斯模型比较</h1><p>略（理论上模型的选择问题，其实现实中用测试集）</p><h1 id="5-证据近似"><a href="#5-证据近似" class="headerlink" title="5 证据近似"></a>5 证据近似</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;1-线性基函数模型&quot;&gt;&lt;a href=&quot;#1-线性基函数模型&quot; class=&quot;headerlink&quot; title=&quot;1 线性基函数模型&quot;&gt;&lt;/a&gt;1 线性基函数模型&lt;/h1&gt;&lt;h2 id=&quot;1-1-最大似然然法求解参数&quot;&gt;&lt;a href=&quot;#1-1-最大似然然法求解参数&quot; class=&quot;headerlink&quot; title=&quot;1.1 最大似然然法求解参数&quot;&gt;&lt;/a&gt;1.1 最大似然然法求解参数&lt;/h2&gt;&lt;p&gt;基函数的引用为了增加模型非线性能力。建立一个线性基函数模型，附加高斯噪音，利用极大似然求解参数可得：&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
