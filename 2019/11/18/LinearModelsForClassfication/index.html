@@ -120,7 +120,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/18/M68BKU.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/18/M68yVJ.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/18/M6GQiR.png">
-<meta property="og:updated_time" content="2019-11-18T09:28:04.906Z">
+<meta property="og:updated_time" content="2019-12-17T07:07:12.062Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PRML：线性分类模型">
 <meta name="twitter:description" content="1 概述本章主要从判别函数（硬分类）与概率模型（软分类）两个角度解决二分类与多分类的问题。">
@@ -511,7 +511,7 @@
 <p>那么拉普拉斯是怎么近似的呢？首先我们有数据集，明确先验和似然函数，我们把后验概率写成如下形式</p>
 <p>\(  p(\boldsymbol{w}|\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta})=\frac{p(\boldsymbol{t}|\boldsymbol{w},\boldsymbol{X}) p(\boldsymbol{w}|\boldsymbol{\theta})} { p(\boldsymbol{t})} \)</p>
 <p>把该式子先log，可以看到log后的极大似然函数的展开形式如下：<br>\( \ln p(\boldsymbol{w}|\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta})=\ln p(\boldsymbol{t}|\boldsymbol{w},\boldsymbol{X})+\ln p(\boldsymbol{w}|\boldsymbol{\theta})-\ln p(\boldsymbol{t}) \)</p>
-<p>将极大似然函数在一个局部最大值（对于\( \boldsymbol{w} \)一阶求导等于0，二阶小于0或者负定，通常可以选择最大后验法中的\( \boldsymbol{\hat{w}}\)，也就是\（ w_{MAP}\)）处泰勒展开可以得到：<br>$$<br>\ln p(\boldsymbol{w};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta}) \approx \ln p(\boldsymbol{\hat{w}};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta})+0-<br>\frac{1}{2}(\boldsymbol{w}-\boldsymbol{\hat{w}})^T\boldsymbol{A}(\boldsymbol{w}-\boldsymbol{\hat{w}})<br>$$<br>其中有精度矩阵A为\( \ln p(\boldsymbol{w}|\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta}) \)对w二阶求导，只和该式子前两项有关，与归一化常数无关，我们可以利用\( \ln p(\boldsymbol{t}|\boldsymbol{w},\boldsymbol{X})+\ln p(\boldsymbol{w}|\boldsymbol{\theta}) \)对对w二阶求导得到精度矩阵。<br>$$<br>\boldsymbol{A}=-\frac{d^{2}}{dw^2} \ln p(\boldsymbol{w};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta})\bigg|_{w=\hat{w}}<br>$$<br>用exp还原近似的式子为<br>$$<br>p(\boldsymbol{w};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta}) \approx p(\boldsymbol{\hat{w}};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta}) exp (-\frac{1}{2}(\boldsymbol{w}-\boldsymbol{\hat{w}})^T\boldsymbol{A}(\boldsymbol{w}-\boldsymbol{\hat{w}}))<br>$$<br>对比高斯分布密度函数可以得出\( \boldsymbol{A}\)为精度，而均值\(\boldsymbol{u}\) 为\( \boldsymbol{\hat{w}}\)。那么对比高斯分布密度函数非指数部分，我们也可以得到归一化常数，当然此时已经没必要求了,我们还是利用如下式子把他求出来。<br>\( \frac{|\boldsymbol{A}|^{\frac{1}{2}}}{({2\pi})^{\frac{M}{2}}} = \ln p(\boldsymbol{t}|\boldsymbol{\hat{w}},\boldsymbol{X})+\ln p(\boldsymbol{\hat{w}}|\boldsymbol{\theta})-\ln p(\boldsymbol{t}) \)</p>
+<p>将极大似然函数在一个局部最大值（对于\( \boldsymbol{w} \)一阶求导等于0，二阶小于0或者负定，通常可以选择最大后验法中的\( \boldsymbol{\hat{w}}\)，也就是\( w_{MAP} \)处泰勒展开可以得到：<br>$$<br>\ln p(\boldsymbol{w};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta}) \approx \ln p(\boldsymbol{\hat{w}};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta})+0-<br>\frac{1}{2}(\boldsymbol{w}-\boldsymbol{\hat{w}})^T\boldsymbol{A}(\boldsymbol{w}-\boldsymbol{\hat{w}})<br>$$<br>其中有精度矩阵A为\( \ln p(\boldsymbol{w}|\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta}) \)对w二阶求导，只和该式子前两项有关，与归一化常数无关，我们可以利用\( \ln p(\boldsymbol{t}|\boldsymbol{w},\boldsymbol{X})+\ln p(\boldsymbol{w}|\boldsymbol{\theta}) \)对对w二阶求导得到精度矩阵。<br>$$<br>\boldsymbol{A}=-\frac{d^{2}}{dw^2} \ln p(\boldsymbol{w};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta})\bigg|_{w=\hat{w}}<br>$$<br>用exp还原近似的式子为<br>$$<br>p(\boldsymbol{w};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta}) \approx p(\boldsymbol{\hat{w}};\boldsymbol{X},\boldsymbol{t},\boldsymbol{\theta}) exp (-\frac{1}{2}(\boldsymbol{w}-\boldsymbol{\hat{w}})^T\boldsymbol{A}(\boldsymbol{w}-\boldsymbol{\hat{w}}))<br>$$<br>对比高斯分布密度函数可以得出\( \boldsymbol{A}\)为精度，而均值\(\boldsymbol{u}\) 为\( \boldsymbol{\hat{w}}\)。那么对比高斯分布密度函数非指数部分，我们也可以得到归一化常数，当然此时已经没必要求了,我们还是利用如下式子把他求出来。<br>\( \frac{|\boldsymbol{A}|^{\frac{1}{2}}}{({2\pi})^{\frac{M}{2}}} = \ln p(\boldsymbol{t}|\boldsymbol{\hat{w}},\boldsymbol{X})+\ln p(\boldsymbol{\hat{w}}|\boldsymbol{\theta})-\ln p(\boldsymbol{t}) \)</p>
 <p>但是拉普拉斯主要依据高斯分布来做的，这是其局限性，特别是现实中很多分布是多峰的，不同的众数会导致不同的拉普拉斯近似。</p>
 <h2 id="4-2-贝叶斯派logistics回归"><a href="#4-2-贝叶斯派logistics回归" class="headerlink" title="4.2 贝叶斯派logistics回归"></a>4.2 贝叶斯派logistics回归</h2><p>分为两个阶段，模型的定义，参数的求解，利用模型推断。</p>
 <h3 id="4-2-1-模型的定义与求解"><a href="#4-2-1-模型的定义与求解" class="headerlink" title="4.2.1  模型的定义与求解"></a>4.2.1  模型的定义与求解</h3><p>我们假设似然函数为logistics回归函数，先验服从高斯分布如下，数据集已知：<br><img src="https://s2.ax1x.com/2019/11/18/M63uXF.png" alt="M63uXF.png"><br>那么利用拉普拉斯近似参数的后验概率为：<br><img src="https://s2.ax1x.com/2019/11/18/M68BKU.png" alt="M68BKU.png"><br><img src="https://s2.ax1x.com/2019/11/18/M68yVJ.png" alt="M68yVJ.png"></p>
@@ -644,7 +644,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

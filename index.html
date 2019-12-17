@@ -306,6 +306,214 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/17/KernelMethod/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="星期八">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="过了星期天的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/17/KernelMethod/" itemprop="url">PRML：线性分类模型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-17T15:09:28+08:00">
+                2019-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PRML/" itemprop="url" rel="index">
+                    <span itemprop="name">PRML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-核方法的理解"><a href="#1-核方法的理解" class="headerlink" title="1 核方法的理解"></a>1 核方法的理解</h1><p>核函数蕴含了一个非线性转换+内积。核函数，核方法，核技巧的区别。核方法是思想角度，核技巧从计算角度，核函数用于实现核方法与核技巧。对偶表示带来内积，非线性带来高维转换。越高维度的空间越线性可分。</p>
+<h2 id="1-1-核函数定义"><a href="#1-1-核函数定义" class="headerlink" title="1.1 核函数定义"></a>1.1 核函数定义</h2><h3 id="1-1-1-常见数学空间"><a href="#1-1-1-常见数学空间" class="headerlink" title="1.1.1 常见数学空间"></a>1.1.1 常见数学空间</h3><p>数学空间的联系如下图。<br><img src="https://s2.ax1x.com/2019/11/26/QSS93D.png" alt="QSS93D.png"></p>
+<h3 id="1-1-2-核函数定义"><a href="#1-1-2-核函数定义" class="headerlink" title="1.1.2 核函数定义"></a>1.1.2 核函数定义</h3><p><a href="https://imgchr.com/i/QSPSZd" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/26/QSPSZd.md.png" alt="QSPSZd.md.png"></a></p>
+<h3 id="1-1-3-核函数的分解"><a href="#1-1-3-核函数的分解" class="headerlink" title="1.1.3 核函数的分解"></a>1.1.3 核函数的分解</h3><p><a href="https://imgchr.com/i/QSZKnf" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/26/QSZKnf.md.png" alt="QSZKnf.md.png"></a><br>\( k(x,x’)= \sum_{k=1}^\infty \lambda_k \psi_k(x) \psi_k(x’) \)</p>
+<p>\(  \psi_k(x) k=0,1,…\) 可以看作一组基地,原希尔伯特空间的基底。</p>
+<h3 id="1-1-4-再生核希尔伯特空间"><a href="#1-1-4-再生核希尔伯特空间" class="headerlink" title="1.1.4 再生核希尔伯特空间"></a>1.1.4 再生核希尔伯特空间</h3><p>我们利用希尔伯特空间的基底构建再生核希尔伯特空间基底，并且有如下推论。<br><a href="https://imgchr.com/i/QSmmef" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/26/QSmmef.md.png" alt="QSmmef.md.png"></a></p>
+<p>固定核函数一个元素，核函数变成了一个函数,也就是再生希尔伯特空间的一个元素，利用推论我们得出如下结果。<br><img src="https://s2.ax1x.com/2019/11/26/QSljhT.gif" alt="QSljhT.gif"></p>
+<p>这个结果称为再生性。</p>
+<p>最终可以得到：<br>\( \phi (x_0) = K(x_0,x’) = (\sqrt{\lambda_1} \psi_1 (x_0), \sqrt{\lambda_2} \psi_2 (x_0), \cdots )^T \)</p>
+<p>也就是说可以把一个数据x0映射到无穷维的向量。<br>总结就是核函数是一个函数矩阵（二元函数对应函数矩阵，一元函数对应无限维度的向量），我们利用该矩阵的特征函数可以构建一个再生希尔伯特空间，利用再生希尔伯特空间的再生性，可以将核函数转换为两个函数的内积。每个函数实现了将1维度数据映射到无限维度。<br>换一种说法，在核函数的再生希尔伯特空间一点，可以由再生希尔伯特空间中的两个向量乘积得到。</p>
+<h2 id="1-2-核函数的构造"><a href="#1-2-核函数的构造" class="headerlink" title="1.2 核函数的构造"></a>1.2 核函数的构造</h2><h3 id="1-2-1-构造基函数从而构造核函数"><a href="#1-2-1-构造基函数从而构造核函数" class="headerlink" title="1.2.1 构造基函数从而构造核函数"></a>1.2.1 构造基函数从而构造核函数</h3><p>构造基函数从而构造核函数最明显的就是径向基函数。径向基函数的意思是每一个基函数都依赖于当前样本与数据集中心的径向距离。<br><img src="https://s2.ax1x.com/2019/11/27/Q9cfcF.png" alt="Q9cfcF.png"><br><img src="https://s2.ax1x.com/2019/11/27/Q9cL9K.png" alt="Q9cL9K.png"></p>
+<h3 id="1-2-2-常用核函数"><a href="#1-2-2-常用核函数" class="headerlink" title="1.2.2 常用核函数"></a>1.2.2 常用核函数</h3><p>首先介绍一些常用的核函数，我们可以利用已知核函数构建新的核函数：</p>
+<h4 id="1-2-2-1-线性核函数-LINEAR"><a href="#1-2-2-1-线性核函数-LINEAR" class="headerlink" title="1.2.2.1 线性核函数 LINEAR"></a>1.2.2.1 线性核函数 LINEAR</h4><p>\( κ(x,x_i)=x*x_i \)<br>线性核，主要用于线性可分的情况。我们可以看到特征空间到输入空间的维度是一样的，其参数少|速度快。对于线性可分数据，其分类效果很理想，因此我们通常首先尝试用线性核函数来做分类，看看效果如何，如果不行再换别的。</p>
+<h4 id="1-2-2-2-高斯径向基核函数-RBF"><a href="#1-2-2-2-高斯径向基核函数-RBF" class="headerlink" title="1.2.2.2 高斯径向基核函数 RBF"></a>1.2.2.2 高斯径向基核函数 RBF</h4><p>\( κ(x,xi)=exp(−\frac{||x−xi||^2}{δ^2}) \)<br>高斯径向基函数是一种局部性强的核函数，其可以将一个样本映射到一个更高维的空间内，该核函数是应用最广的一个，无论大样本还是小样本都有比较好的性能，而且其相对于多项式核函数参数要少，因此大多数情况下在不知道用什么核函数的时候，优先使用高斯核函数。</p>
+<h4 id="1-2-2-3-多项式核函数-POLY"><a href="#1-2-2-3-多项式核函数-POLY" class="headerlink" title="1.2.2.3 多项式核函数 POLY"></a>1.2.2.3 多项式核函数 POLY</h4><p>\( κ(x,x_i)=((x*x_i)+1)^d \)<br>多项式核函数可以实现将低维的输入空间映射到高纬的特征空间，但是多项式核函数的参数多，当多项式的阶数比较高的时候，核矩阵的元素值将趋于无穷大或者无穷小，计算复杂度会大到无法计</p>
+<h4 id="1-2-2-4-神经元的非线性作用核函数-Sigmoid"><a href="#1-2-2-4-神经元的非线性作用核函数-Sigmoid" class="headerlink" title="1.2.2.4 神经元的非线性作用核函数 Sigmoid"></a>1.2.2.4 神经元的非线性作用核函数 Sigmoid</h4><p>\( κ(x,x_i)=tanh(a(x,x_i)+b) \)<br>神经元的非线性作用核函数</p>
+<h4 id="1-2-2-5-对比选择核函数"><a href="#1-2-2-5-对比选择核函数" class="headerlink" title="1.2.2.5 对比选择核函数"></a>1.2.2.5 对比选择核函数</h4><p>因此，在选用核函数的时候，如果我们对我们的数据有一定的先验知识，就利用先验来选择符合数据分布的核函数；如果不知道的话，通常使用交叉验证1的方法，来试用不同的核函数，误差最小的即为效果最好的核函数，或者也可以将多个核函数结合起来，形成混合核函数。在吴恩达的课上，也曾经给出过一系列的选择核函数的方法：</p>
+<ul>
+<li>如果特征的数量大到和样本数量差不多，则选用LR或者线性核的SVM；</li>
+<li>如果特征的数量小，样本的数量正常，则选用SVM+高斯核函数；</li>
+<li>如果特征的数量小，而样本的数量很大，则需要手工添加一些特征从而变成第一种情况。</li>
+</ul>
+<h1 id="2-核方法的应用零：L2正则的最小二乘法"><a href="#2-核方法的应用零：L2正则的最小二乘法" class="headerlink" title="2 核方法的应用零：L2正则的最小二乘法"></a>2 核方法的应用零：L2正则的最小二乘法</h1><p>L2正则的最小二乘法平方和误差函数为：<br><img src="https://s2.ax1x.com/2019/12/06/QJgB0P.png" alt="QJgB0P.png"></p>
+<p>我们想要找到一个对偶形式,通过把w替换为别的变量，把上式表现为有基函数内积的形式。那么怎么替换w呢，首先可以将J(w)对w求导等于0。所以有：<br><a href="https://imgse.com/i/QJ2Q3Q" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/06/QJ2Q3Q.md.png" alt="QJ2Q3Q.md.png"></a><br>我们找到了w的替换形式，将其带入误差函数有<br><img src="https://s2.ax1x.com/2019/12/06/QJRLe1.png" alt="QJRLe1.png"></p>
+<p>对偶公式的优点是，它可以完全通过核函数来表示。于是我们可以直接针对很函数进行计算，避免了显示地引入特征向量\( \phi(x) \)，这使得我们可以隐式地使用高维特征空间，甚至无限维特征空间。</p>
+<h1 id="3-核方法的应用一-核回归-Nadaraya-Waston-模型"><a href="#3-核方法的应用一-核回归-Nadaraya-Waston-模型" class="headerlink" title="3 核方法的应用一:核回归(Nadaraya-Waston 模型)"></a>3 核方法的应用一:核回归(Nadaraya-Waston 模型)</h1><p><a href="https://imgse.com/i/QJqnL8" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/06/QJqnL8.md.png" alt="QJqnL8.md.png"></a></p>
+<h1 id="4-核方法应用二：高斯过程回归"><a href="#4-核方法应用二：高斯过程回归" class="headerlink" title="4 核方法应用二：高斯过程回归"></a>4 核方法应用二：高斯过程回归</h1><p><code>http://www.gaussianprocess.org/gpml/chapters/RW2.pdf</code>讲的非常好，函数角度需要对随机过程中高斯过程理解，有待于学习。</p>
+<h2 id="4-1-高斯过程（理解随机过程可以更好的把握）"><a href="#4-1-高斯过程（理解随机过程可以更好的把握）" class="headerlink" title="4.1 高斯过程（理解随机过程可以更好的把握）"></a>4.1 高斯过程（理解随机过程可以更好的把握）</h2><p>未完待续…</p>
+<h2 id="4-2-权重角度"><a href="#4-2-权重角度" class="headerlink" title="4.2 权重角度"></a>4.2 权重角度</h2><p>贝叶斯线性回归+核技巧=高斯过程回归。<br><img src="https://s2.ax1x.com/2019/12/17/QopRz9.png" alt="QopRz9.png"><br><img src="https://s2.ax1x.com/2019/12/17/Qo9noT.jpg" alt="Qo9noT.jpg"><br><img src="https://s2.ax1x.com/2019/12/17/Qo91SJ.jpg" alt="Qo91SJ.jpg"><br><img src="https://s2.ax1x.com/2019/12/17/Qo9NTK.md.jpg" alt="Qo9NTK.md.jpg"></p>
+<h2 id="4-3-函数角度（理解随机过程可以更好的把握）"><a href="#4-3-函数角度（理解随机过程可以更好的把握）" class="headerlink" title="4.3 函数角度（理解随机过程可以更好的把握）"></a>4.3 函数角度（理解随机过程可以更好的把握）</h2><p>未完待续…</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>希尔伯特空间：<code>https://blog.csdn.net/ACM_hades/article/details/90545657</code>，<code>http://open.163.com/newview/movie/free?pid=M8PTB0GHI&amp;mid=M8PTBUHT0</code>，<code>http://songcy.net/posts/story-of-basis-and-kernel-part-2/</code><br>常用核函数：<code>https://blog.csdn.net/yefcion/article/details/81099390</code></p>
+<p>L2正则最小二乘法对偶：<code>http://pelhans.com/2018/11/08/prml_note6/</code></p>
+<p>核回归：<code>https://baike.baidu.com/item/Nadaraya-Watson%E5%9B%9E%E5%BD%92/23253190?fr=aladdin</code></p>
+<p>高斯过程回归：<code>https://zhuanlan.zhihu.com/p/24388992</code>,<code>http://www.gaussianprocess.org/gpml/chapters/RW2.pdf</code></p>
+<p>#未解决疑问</p>
+<p>1.再生希尔伯特空间再生性。<br>2.对偶形式中为什么要把a带入J(w)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/25/ProbabilityDistributions/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1582,7 +1790,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
